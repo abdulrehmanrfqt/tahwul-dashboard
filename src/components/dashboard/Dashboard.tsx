@@ -42,10 +42,10 @@ const ProjectTimeline = () => {
   ];
 
   return (
-    <div className="bg-white p-6 rounded-xl border border-slate-200 shadow-sm mb-4">
+    <div className="bg-white p-6 rounded-xl border border-[#E0E8ED] shadow-sm mb-4">
       <div className="flex justify-between items-center mb-2">
         <h3 className="font-['Cairo'] text-[16px] font-bold leading-[16px] tracking-normal text-[#1D3557] capitalize">Project Timeline</h3>
-        <button className="flex items-center gap-2 px-3 py-1.5 border border-slate-200 rounded-lg text-sm font-medium text-slate-600 hover:bg-slate-50">
+        <button className="flex items-center gap-2 px-3 py-1.5 border border-[#E0E8ED] rounded-lg text-sm font-medium text-[#8597A8] hover:bg-[#F5F8FB]">
           2026 <ChevronDown size={16} />
         </button>
       </div>

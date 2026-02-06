@@ -26,7 +26,7 @@ const Sidebar: React.FC<SidebarProps> = ({ isOpen, setIsOpen, activeTab, setActi
 
   return (
     <aside 
-      className={`bg-[#16263e] transition-all duration-300 ease-in-out flex flex-col relative ${
+      className={`bg-[#1D3557] transition-all duration-300 ease-in-out flex flex-col relative ${
         isOpen ? 'w-64' : 'w-20'
       }`}
     >
@@ -85,12 +85,12 @@ const Sidebar: React.FC<SidebarProps> = ({ isOpen, setIsOpen, activeTab, setActi
               onClick={() => setActiveTab(item.id)}
               className={`w-full flex items-center gap-4 px-4 py-3 rounded-lg transition-all duration-200 group ${
                 isActive 
-                  ? 'bg-[#2b3c54] text-white' 
-                  : 'text-slate-400 hover:bg-[#202f4a] hover:text-slate-200'
+                  ? 'bg-[#98AEC01A] text-white' 
+                  : 'text-[#8597A8] hover:bg-[#98AEC01A] hover:text-white'
               } ${!isOpen ? 'justify-center px-0' : ''}`}
             >
               <img src={item.icon} alt="" className={`w-5 h-5 shrink-0 ${isActive ? 'opacity-100' : 'opacity-60 group-hover:opacity-80'}`} />
-              {isOpen && <span className="font-medium text-sm whitespace-nowrap">{item.name}</span>}
+              {isOpen && <span className="font-['Cairo'] text-[14px] font-medium leading-[16px] tracking-normal capitalize whitespace-nowrap">{item.name}</span>}
             </button>
           );
         })}
