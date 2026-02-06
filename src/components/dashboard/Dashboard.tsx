@@ -21,7 +21,7 @@ import {
   Pie,
   Cell
 } from 'recharts';
-import StrategicPlanningDetail from './StrategicPlanningDetail.tsx';
+import StrategicPlanningDetail from './StrategicPlanningDetail';
 
 // --- Sub-components ---
 
@@ -170,9 +170,9 @@ const TopLeaders = () => {
 
 const RecentActivities = () => {
   const activities = [
-    { text: 'Document “Strategy_Review.Pdf” Was Uploaded By Ahmed Khaled', time: '5 Mins Ago' },
-    { text: 'Task “Review Compliance Files” Was Assigned To Mona Hamed', time: '20 Mins Ago' },
-    { text: 'New Criterion “5.3 Digital Identity” Was Created By Admin', time: '1 Hour Ago' },
+    { text: 'Document "Strategy_Review.Pdf" Was Uploaded By Ahmed Khaled', time: '5 Mins Ago' },
+    { text: 'Task "Review Compliance Files" Was Assigned To Mona Hamed', time: '20 Mins Ago' },
+    { text: 'New Criterion "5.3 Digital Identity" Was Created By Admin', time: '1 Hour Ago' },
   ];
   return (
     <div className="bg-white p-6 rounded-xl border border-slate-200 shadow-sm h-full">

@@ -1,8 +1,8 @@
 
 import React, { useState } from 'react';
-import Sidebar from './components/Sidebar.tsx';
-import Header from './components/Header.tsx';
-import Dashboard from './components/Dashboard.tsx';
+import Sidebar from '@/components/layout/Sidebar';
+import Header from '@/components/layout/Header';
+import Dashboard from '@/components/dashboard/Dashboard';
 
 const App: React.FC = () => {
   const [isSidebarOpen, setIsSidebarOpen] = useState(true);

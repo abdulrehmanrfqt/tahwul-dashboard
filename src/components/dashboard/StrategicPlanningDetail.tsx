@@ -230,17 +230,17 @@ const StrategicPlanningDetail: React.FC<StrategicPlanningDetailProps> = ({ onBac
             <div className="flex-1 p-8 space-y-4 overflow-y-auto bg-white">
               <div className="bg-[#f8fafc] p-6 rounded-xl border border-slate-50">
                 <p className="text-[#475569] text-[13px] font-medium leading-relaxed">
-                  Develop A Digital Transformation Strategy Aligned With The Organization’s Strategy And The Objectives Of Saudi Vision 2030.
+                  Develop A Digital Transformation Strategy Aligned With The Organization's Strategy And The Objectives Of Saudi Vision 2030.
                 </p>
               </div>
 
               <div className="bg-[#f8fafc] p-6 rounded-xl border border-slate-50">
                 <p className="text-[#475569] text-[13px] font-medium leading-relaxed">
                   Prepare A Digital Transformation Strategy For The Transition To Electronic Government Transactions, Including The Following:<br/>
-                  A. The Organization’s Vision, Mission, Strategic Pillars, And Strategic Objectives, And Their Alignment With The Organization’s Overall Strategy.<br/>
+                  A. The Organization's Vision, Mission, Strategic Pillars, And Strategic Objectives, And Their Alignment With The Organization's Overall Strategy.<br/>
                   B. Strategic Initiatives, Programs, And Performance Indicators.<br/>
-                  C. A Clear Methodology For Integration And Coordination With Relevant External Entities To Achieve The Strategy’s Objectives.<br/>
-                  D. Required Competencies, Capabilities, And Skills Necessary To Achieve The Strategy’s Objectives.
+                  C. A Clear Methodology For Integration And Coordination With Relevant External Entities To Achieve The Strategy's Objectives.<br/>
+                  D. Required Competencies, Capabilities, And Skills Necessary To Achieve The Strategy's Objectives.
                 </p>
               </div>
 

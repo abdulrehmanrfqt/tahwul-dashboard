@@ -45,14 +45,28 @@ npm run preview
 
 This serves the contents of `dist` locally so you can test the production build.
 
-### Project structure (high level)
+### Project structure
 
-- **`index.html`** – Vite entry HTML
-- **`index.tsx`** – React entry point
-- **`App.tsx`** – Root application component
-- **`components/`** – UI components such as `Dashboard`, `Header`, `Sidebar`, etc.
-- **`assets/`** – Static images and icons
-- **`services/`** – Client-side service modules (API calls, helpers, etc.)
+```
+tahwul-dashboard/
+├── index.html              # Vite entry HTML
+├── src/
+│   ├── main.tsx            # React entry point
+│   ├── App.tsx             # Root app component
+│   ├── index.css           # Global styles
+│   ├── assets/             # Images, icons (e.g. PNGs)
+│   ├── types/              # Shared TypeScript types
+│   │   └── index.ts
+│   └── components/
+│       ├── layout/         # Header, Sidebar
+│       ├── dashboard/      # Dashboard, StrategicPlanningDetail
+│       └── shared/         # Reusable UI (e.g. AuditTable)
+├── vite.config.ts
+├── tsconfig.json
+└── package.json
+```
+
+Use the `@/` path alias in imports (e.g. `@/components/layout/Header`, `@/types`).
 
 ### Available scripts
 

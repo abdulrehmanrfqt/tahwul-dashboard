@@ -1,6 +1,6 @@
 
 import React from 'react';
-import { AuditStatus, RiskLevel, AuditRecord } from '../types';
+import { AuditStatus, RiskLevel, AuditRecord } from '@/types';
 import { MoreVertical, ExternalLink } from 'lucide-react';
 
 const mockAudits: AuditRecord[] = [
