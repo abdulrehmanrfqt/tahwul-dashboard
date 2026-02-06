@@ -14,12 +14,12 @@ import {
   Cell
 } from 'recharts';
 import StrategicPlanningDetail from './StrategicPlanningDetail';
-import overallprogressIcon from '@/assets/dashboard/overallprogress.png';
-import totalCriteriaIcon from '@/assets/dashboard/totalCriteria.png';
-import completedCriteriaIcon from '@/assets/dashboard/completedCriteria.png';
-import evidenceDocumentsIcon from '@/assets/dashboard/evidenceDocuments.png';
-import evidenceCompletedIcon from '@/assets/dashboard/evidenceCompleted.png';
-import uploadedtoDGAIcon from '@/assets/dashboard/uploadedtoDGA.png';
+import overallprogressIcon from '@/assets/dashboard/overallprogress.svg';
+import totalCriteriaIcon from '@/assets/dashboard/totalCriteria.svg';
+import completedCriteriaIcon from '@/assets/dashboard/completedCriteria.svg';
+import evidenceDocumentsIcon from '@/assets/dashboard/evidenceDocuments.svg';
+import evidenceCompletedIcon from '@/assets/dashboard/evidenceCompleted.svg';
+import uploadedtoDGAIcon from '@/assets/dashboard/uploadedtoDGA.svg';
 
 
 const OverallProgressIcon = (_props: { size?: number }) => <img src={overallprogressIcon} alt="" className="w-5 h-5" />;
@@ -81,8 +81,8 @@ const MetricCard = ({ label, value, icon: Icon, color }: any) => (
 
 const StatusBubble = ({ num, status }: { num: number, status: string }) => {
   const statusColors: any = {
-    'completed': 'bg-emerald-500 text-white',
-    'in-progress': 'bg-amber-500 text-white',
+    'completed': 'bg-[#1EA54E] text-white',
+    'in-progress': 'bg-[#F59F0A] text-white',
     'not-started': 'bg-slate-400 text-white',
     'partially-uploaded': 'bg-[#16263e] text-white',
     'fully-uploaded': 'bg-blue-500 text-white',
@@ -90,7 +90,7 @@ const StatusBubble = ({ num, status }: { num: number, status: string }) => {
   };
 
   return (
-    <div className={`w-7 h-7 rounded-full flex items-center justify-center text-[10px] font-bold ${statusColors[status] || statusColors['not-started']}`}>
+    <div className={`w-[24px] h-[24px] rounded-full flex items-center justify-center font-['Cairo'] text-[16px] font-normal leading-[16px] tracking-normal capitalize ${statusColors[status] || statusColors['not-started']}`}>
       {num}
     </div>
   );
@@ -102,15 +102,15 @@ const CategoryColumn = ({ title, percent, subCategories, onClick }: any) => (
       onClick={onClick}
       className="bg-[#1D3557] p-2 rounded-xl text-center flex flex-col items-center justify-center h-24 hover:bg-[#1a2d4b] transition-colors group"
     >
-      <h4 className="text-[12px] font-bold text-white uppercase tracking-tight mb-2 leading-tight px-1 group-hover:underline">{title}</h4>
-      <span className="bg-[#98AEC01A] text-white px-2 py-0.5 rounded-full text-[14px] font-bold border border-white/20">
+      <h4 className="font-['Cairo'] text-[12px] font-bold leading-[16px] tracking-normal text-center text-white capitalize mb-2 px-1 group-hover:underline">{title}</h4>
+      <span className="inline-flex items-center justify-center w-[63px] h-[22px] rounded-[10px] bg-[#98AEC01A] text-white font-['Cairo'] text-[14px] font-bold leading-[16px] tracking-normal capitalize px-[10px] box-border">
         {percent}%
       </span>
     </button>
     <div className="flex flex-col gap-3">
       {subCategories.map((sub: any, i: number) => (
-        <div key={i} className="bg-[#f8fafc] border border-slate-100 rounded-xl p-3">
-          <p className="text-[9px] font-bold text-slate-500 text-center uppercase mb-3 leading-tight tracking-tighter h-6 flex items-center justify-center">
+        <div key={i} className="bg-[#F5F8FB] border border-#E0E8ED rounded-xl p-3">
+          <p className="w-[82px] h-[32px] font-['Cairo'] text-[10px] font-normal leading-[16px] tracking-normal text-center text-[#1D3557] capitalize mb-3 flex items-center justify-center">
             {sub.name}
           </p>
           <div className="grid grid-cols-2 gap-2 place-items-center">

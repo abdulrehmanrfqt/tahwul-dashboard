@@ -1,10 +1,10 @@
 import React from 'react';
-import dashboardIcon from '@/assets/sidebar/dashboard.png';
-import perspectivesIcon from '@/assets/sidebar/perspectives.png';
-import tasksIcon from '@/assets/sidebar/tasks.png';
-import documentsIcon from '@/assets/sidebar/documents.png';
-import reportsIcon from '@/assets/sidebar/reports.png';
-import usersIcon from '@/assets/sidebar/users.png';
+import dashboardIcon from '@/assets/sidebar/dashboard.svg';
+import perspectivesIcon from '@/assets/sidebar/perspective.svg';
+import tasksIcon from '@/assets/sidebar/tasks.svg';
+import documentsIcon from '@/assets/sidebar/documents.svg';
+import reportsIcon from '@/assets/sidebar/reports.svg';
+import usersIcon from '@/assets/sidebar/users.svg';
 
 interface SidebarProps {
   isOpen: boolean;
