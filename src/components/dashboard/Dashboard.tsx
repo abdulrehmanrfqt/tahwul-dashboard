@@ -199,22 +199,40 @@ const RecentActivities = () => {
 };
 
 const PerformanceChart = () => {
+  const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
   const performanceData = [
     { name: 'Jan', val: 85 }, { name: 'Feb', val: 75 }, { name: 'Mar', val: 80 }, { name: 'Apr', val: 40 },
     { name: 'May', val: 85 }, { name: 'Jun', val: 78 }, { name: 'Jul', val: 55 }, { name: 'Aug', val: 85 },
     { name: 'Sept', val: 78 }, { name: 'Oct', val: 55 }, { name: 'Nov', val: 85 }, { name: 'Dec', val: 78 }
   ];
   return (
-    <div className="bg-white p-6 rounded-xl border border-slate-200 shadow-sm h-full">
+    <div className="bg-white p-6 rounded-xl border border-[#E0E8ED] shadow-sm h-full">
       <h3 className="font-['Cairo'] text-[16px] font-bold leading-[16px] tracking-normal text-[#1D3557] capitalize mb-8">12-Month Performance</h3>
       <div className="h-[250px] w-full">
         <ResponsiveContainer width="100%" height="100%">
           <BarChart data={performanceData}>
+            <defs>
+              <linearGradient id="performanceBarGradient" x1="0" y1="1" x2="0" y2="0">
+                <stop offset="0%" stopColor="rgba(0, 120, 215, 0)" />
+                <stop offset="100%" stopColor="#0078D7" />
+              </linearGradient>
+            </defs>
             <CartesianGrid strokeDasharray="3 3" vertical={false} stroke="#f1f5f9" />
-            <XAxis dataKey="name" axisLine={false} tickLine={false} tick={{fill: '#94a3b8', fontSize: 10}} />
-            <YAxis axisLine={false} tickLine={false} tick={{fill: '#94a3b8', fontSize: 10}} />
-            <Tooltip />
-            <Bar dataKey="val" fill="#3b82f6" radius={[4, 4, 0, 0]} barSize={32} />
+            <XAxis dataKey="name" axisLine={false} tickLine={false} tick={{fill: '#8597A8', fontFamily: 'Cairo', fontSize: 12}} />
+            <YAxis axisLine={false} tickLine={false} tick={{fill: '#8597A8', fontFamily: 'Cairo', fontSize: 12}} />
+            <Tooltip cursor={false} />
+            <Bar
+              dataKey="val"
+              fill="url(#performanceBarGradient)"
+              radius={[4, 4, 0, 0]}
+              barSize={32}
+              onMouseEnter={(_data, index) => setHoveredIndex(index)}
+              onMouseLeave={() => setHoveredIndex(null)}
+            >
+              {performanceData.map((_, index) => (
+                <Cell key={index} stroke={hoveredIndex === index ? '#0078D7' : 'none'} strokeWidth={hoveredIndex === index ? 2 : 0} />
+              ))}
+            </Bar>
           </BarChart>
         </ResponsiveContainer>
       </div>
@@ -231,14 +249,15 @@ const AuditReadiness = () => {
       <div className="flex flex-col items-center justify-center relative mb-6">
         <ResponsiveContainer width="100%" height={160}>
           <PieChart>
-            <Pie data={data} cx="50%" cy="100%" startAngle={180} endAngle={0} innerRadius={70} outerRadius={90} dataKey="value" stroke="none">
+            <Pie data={data} cx="50%" cy="100%" startAngle={180} endAngle={0} innerRadius={70} outerRadius={85} dataKey="value" stroke="none">
               <Cell fill="#1EA54E" />
               <Cell fill="#F5F8FB" />
             </Pie>
           </PieChart>
         </ResponsiveContainer>
         <div className="absolute bottom-4 flex flex-col items-center">
-          <span className="text-4xl font-bold text-slate-900">{score}%</span>
+          <span className="font-['Cairo'] text-[44px] font-bold leading-[16px] tracking-normal text-[#1D3557] capitalize mb-4">{score}%</span>
+          <span className="font-['Cairo'] text-[14px] font-normal leading-[16px] tracking-normal text-[#8597A8] capitalize text-center">Readiness Level</span>
         </div>
       </div>
       <div className="grid grid-cols-2 border-t border-[#E0E8ED] pt-6">
