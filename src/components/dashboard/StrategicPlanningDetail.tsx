@@ -1,15 +1,10 @@
 
 import React, { useState } from 'react';
-import { 
-  ArrowLeft, 
-  FileText, 
-  ClipboardCheck, 
-  Clock, 
-  CheckCircle2,
-  ChevronUp,
-  ChevronDown,
-  Send
-} from 'lucide-react';
+import { ArrowLeft, ChevronUp, ChevronDown, Send } from 'lucide-react';
+import totalEvidenceIcon from '@/assets/totalEvidence.svg';
+import underReviewIcon from '@/assets/underReview.svg';
+import inProgressIcon from '@/assets/inProgress.svg';
+import completedEvidenceIcon from '@/assets/completedEvidence.svg';
 
 interface StrategicPlanningDetailProps {
   onBack: () => void;
@@ -139,67 +134,67 @@ const StrategicPlanningDetail: React.FC<StrategicPlanningDetailProps> = ({ onBac
         >
           <ArrowLeft size={20} />
         </button>
-        <h2 className="text-base font-bold text-[#16263e]">Digital Transformation Strategic Planning</h2>
+        <h2 className="font-['Cairo'] text-[16px] font-bold leading-[16px] tracking-normal text-[#1D3557] capitalize">Digital Transformation Strategic Planning</h2>
       </div>
 
-      <div className="bg-white p-8 rounded-2xl border border-slate-200 shadow-sm mb-8 flex justify-between items-center">
-        <div className="space-y-4">
-          <span className="bg-[#f1f5f9] text-[#94a3b8] text-[11px] font-bold px-3 py-1.5 rounded-full border border-slate-200 inline-block uppercase tracking-wider">
+      <div className="bg-white p-4 rounded-2xl border border-slate-200 shadow-sm mb-4 flex justify-between items-center">
+        <div className="space-y-2">
+          <span className="bg-[#F5F8FB] font-['Cairo'] text-[12px] font-medium leading-[22px] tracking-normal text-[#8597A8] capitalize px-3 py-1.5 rounded-full border border-[#E0E8ED] inline-block">
             Strategy & Planning
           </span>
-          <h1 className="text-[28px] font-bold text-[#16263e] tracking-tight">Digital Transformation Strategic Planning</h1>
-          <p className="text-[#94a3b8] text-sm font-medium">
+          <h1 className="font-['Cairo'] text-[16px] font-bold leading-[22px] tracking-normal text-[#1D3557] capitalize">Digital Transformation Strategic Planning</h1>
+          <p className="font-['Cairo'] text-[14px] font-normal leading-[16px] tracking-normal text-[#8597A8] capitalize">
             Develop Comprehensive Strategic Plans For Digital Transformation Aligned With Organizational Goals
           </p>
         </div>
         
         <div className="relative w-24 h-24 shrink-0 mr-4">
           <svg className="w-full h-full transform -rotate-90" viewBox="0 0 100 100">
-            <circle cx="50" cy="50" r="42" stroke="#f1f5f9" strokeWidth="8" fill="transparent" />
-            <circle cx="50" cy="50" r="42" stroke="#10b981" strokeWidth="8" fill="transparent" strokeDasharray="263.89" strokeDashoffset="0" strokeLinecap="round" />
+            <circle cx="50" cy="50" r="42" stroke="#1EA54E" strokeWidth="8" fill="transparent" />
+            <circle cx="50" cy="50" r="42" stroke="#1EA54E" strokeWidth="8" fill="transparent" strokeDasharray="263.89" strokeDashoffset="0" strokeLinecap="round" />
           </svg>
           <div className="absolute inset-0 flex items-center justify-center">
-            <span className="text-sm font-black text-[#16263e]">100%</span>
+            <span className="font-['Cairo'] text-[16px] font-bold leading-[22px] tracking-normal text-[#1D3557] capitalize">100%</span>
           </div>
         </div>
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-4 gap-6 mb-8">
+      <div className="grid grid-cols-1 md:grid-cols-4 gap-6 mb-4">
         {[
-          { label: 'Total Evidence', val: 4, icon: FileText, color: 'text-rose-500 bg-rose-50' },
-          { label: 'Under Review Evidence', val: 3, icon: Clock, color: 'text-rose-500 bg-rose-50' },
-          { label: 'In Progress Evidence', val: 2, icon: ClipboardCheck, color: 'text-rose-500 bg-rose-50' },
-          { label: 'Completed Evidence', val: 1, icon: CheckCircle2, color: 'text-rose-500 bg-rose-50' }
+          { label: 'Total Evidence', val: 4, icon: totalEvidenceIcon, color: 'text-rose-500' },
+          { label: 'Under Review Evidence', val: 3, icon: underReviewIcon, color: 'text-rose-500' },
+          { label: 'In Progress Evidence', val: 2, icon: inProgressIcon, color: 'text-rose-500' },
+          { label: 'Completed Evidence', val: 1, icon: completedEvidenceIcon, color: 'text-rose-500' }
         ].map((item, i) => (
-          <div key={i} className="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm flex items-center gap-4">
+          <div key={i} className="bg-white p-6 rounded-2xl border border-[#E0E8ED] shadow-sm flex items-center gap-4">
             <div className={`p-3 rounded-xl ${item.color}`}>
-              <item.icon size={22} />
+              <img src={item.icon} alt="" className="w-[22px] h-[22px]" />
             </div>
             <div>
-              <p className="text-2xl font-bold text-slate-900 leading-none mb-1">{item.val}</p>
-              <p className="text-[11px] font-bold text-[#94a3b8]">{item.label}</p>
+              <p className="font-['Cairo'] text-[24px] font-bold leading-[16px] tracking-normal text-[#1D3557] capitalize mb-2">{item.val}</p>
+              <p className="font-['Cairo'] text-[14px] font-medium leading-[22px] tracking-normal text-[#8597A8] capitalize">{item.label}</p>
             </div>
           </div>
         ))}
       </div>
 
-      <div className="flex gap-2 mb-6">
+      <div className="flex gap-2 mb-4">
         <button 
           onClick={() => setActiveTab('overview')}
-          className={`px-6 py-2 rounded-lg text-xs font-bold transition-all shadow-sm border ${
+          className={`px-6 py-2 rounded-lg text-[14px] font-normal leading-[20px] tracking-normal text-[#1D3557] capitalize transition-all shadow-sm border ${
             activeTab === 'overview' 
-              ? 'bg-white border-slate-200 text-[#16263e]' 
-              : 'bg-slate-200/50 border-transparent text-[#94a3b8]'
+              ? 'bg-white border-[#E0E8ED] text-[#1D3557]' 
+              : 'bg-[#F5F8FB] border-transparent text-[#8597A8]'
           }`}
         >
           Overview
         </button>
         <button 
           onClick={() => setActiveTab('evidence')}
-          className={`px-6 py-2 rounded-lg text-xs font-bold transition-all shadow-sm border ${
+          className={`px-6 py-2 rounded-lg text-[14px] font-normal leading-[20px] tracking-normal text-[#1D3557] capitalize transition-all shadow-sm border ${
             activeTab === 'evidence' 
-              ? 'bg-white border-slate-200 text-[#16263e]' 
-              : 'bg-slate-200/50 border-transparent text-[#94a3b8]'
+              ? 'bg-white border-[#E0E8ED] text-[#1D3557]' 
+              : 'bg-[#E0E8ED80] border-transparent text-[#8597A8]'
           }`}
         >
           Evidence
