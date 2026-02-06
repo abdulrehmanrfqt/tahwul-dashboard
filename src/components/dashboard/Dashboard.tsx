@@ -44,21 +44,21 @@ const ProjectTimeline = () => {
   return (
     <div className="bg-white p-6 rounded-xl border border-slate-200 shadow-sm mb-4">
       <div className="flex justify-between items-center mb-2">
-        <h3 className="font-bold text-[#16263e] text-lg">Project Timeline</h3>
+        <h3 className="font-['Cairo'] text-[16px] font-bold leading-[16px] tracking-normal text-[#1D3557] capitalize">Project Timeline</h3>
         <button className="flex items-center gap-2 px-3 py-1.5 border border-slate-200 rounded-lg text-sm font-medium text-slate-600 hover:bg-slate-50">
           2026 <ChevronDown size={16} />
         </button>
       </div>
-      <div className="relative pt-4 pb-4">
-        <div className="absolute top-[15px] left-0 right-0 h-3 bg-slate-100 rounded-full mx-2 overflow-hidden">
-          <div className="absolute top-0 left-0 w-[35%] h-full bg-emerald-500" />
+      <div className="relative pt-4 pb-2">
+        <div className="absolute top-[15px] left-0 right-0 h-3 bg-[#F5F8FB] rounded-full mx-2 overflow-hidden">
+          <div className="absolute top-0 left-0 w-[35%] h-full bg-[#1EA54E]" />
         </div>
         <div className="relative flex justify-between">
           {milestones.map((m, i) => (
             <div key={i} className="flex flex-col items-center text-center w-32 relative z-10">
               <div className={`w-2.5 h-2.5 rounded-full border-0 border-white shadow-sm mb-6 ${m.completed ? 'bg-white' : 'bg-rose-500'}`} />
-              <p className="text-[12px] text-slate-400 mb-1">{m.date}</p>
-              <p className="text-[14px] text-slate-700 leading-tight">{m.label}</p>
+              <p className="font-['Cairo'] text-[14px] font-normal leading-[16px] tracking-normal text-[#8597A8] capitalize mb-1">{m.date}</p>
+              <p className="font-['Cairo'] text-[14px] font-normal leading-[16px] tracking-normal text-[#1D3557] capitalize leading-tight">{m.label}</p>
             </div>
           ))}
         </div>
@@ -128,19 +128,19 @@ const ComplianceGauge = ({ score, title, color }: { score: number, title: string
   const data = [{ value: score }, { value: 100 - score }];
   return (
     <div className="bg-white p-6 rounded-xl border border-slate-200 shadow-sm flex flex-col h-full">
-      <h3 className="font-bold text-[#16263e] mb-4">{title}</h3>
+      <h3 className="font-['Cairo'] text-[16px] font-bold leading-[16px] tracking-normal text-[#1D3557] capitalize mb-4">{title}</h3>
       <div className="flex-1 flex flex-col items-center justify-center relative">
-        <ResponsiveContainer width="100%" height={160}>
+        <ResponsiveContainer width="100%" height={160} className="mb-4">
           <PieChart>
-            <Pie data={data} cx="50%" cy="100%" startAngle={180} endAngle={0} innerRadius={70} outerRadius={90} dataKey="value" stroke="none">
+            <Pie data={data} cx="50%" cy="100%" startAngle={180} endAngle={0} innerRadius={70} outerRadius={85} dataKey="value" stroke="none">
               <Cell fill={color} />
               <Cell fill="#f1f5f9" />
             </Pie>
           </PieChart>
         </ResponsiveContainer>
         <div className="absolute bottom-4 flex flex-col items-center">
-          <span className="text-4xl font-bold text-slate-900">{score}%</span>
-          <span className="text-[10px] font-semibold text-slate-400 mt-1 uppercase tracking-wider">Basic Standards 2025</span>
+          <span className="font-['Cairo'] text-[44px] font-bold leading-[16px] tracking-normal text-[#1D3557] capitalize mb-4">{score}%</span>
+          <span className="font-['Cairo'] text-[14px] font-normal leading-[16px] tracking-normal text-[#8597A8] capitalize text-center mt-1">Basic Standards 2025</span>
         </div>
       </div>
     </div>
@@ -155,18 +155,18 @@ const TopLeaders = () => {
   ];
   return (
     <div className="bg-white p-6 rounded-xl border border-slate-200 shadow-sm h-full">
-      <h3 className="font-bold text-[#16263e] mb-6">Top Performing Perspective Leaders</h3>
-      <div className="space-y-6">
+      <h3 className="font-['Cairo'] text-[16px] font-bold leading-[16px] tracking-normal text-[#1D3557] capitalize mb-6">Top Performing Perspective Leaders</h3>
+      <div className="divide-y divide-[#E0E8ED]">
         {leaders.map((leader, i) => (
-          <div key={i} className="flex items-center justify-between">
+          <div key={i} className="flex items-center justify-between py-4 first:pt-0 last:pb-0">
             <div className="flex items-center gap-3">
-              <img src={`https://i.pravatar.cc/150?u=${leader.name}`} className="w-10 h-10 rounded-full border border-slate-200" alt={leader.name} />
+              <img src={`https://i.pravatar.cc/150?u=${leader.name}`} className="w-12 h-12 rounded-full border border-[#E0E8ED] shrink-0" alt={leader.name} />
               <div>
-                <p className="text-sm font-bold text-slate-800 leading-none mb-1">{leader.name}</p>
-                <p className="text-[11px] text-slate-400 font-medium">{leader.role}</p>
+                <p className="font-['Cairo'] text-[16px] font-medium leading-[22px] tracking-normal text-[#1D3557] capitalize mb-1">{leader.name}</p>
+                <p className="font-['Cairo'] text-[16px] font-medium leading-[22px] tracking-normal text-[#8597A8] capitalize">{leader.role}</p>
               </div>
             </div>
-            <span className="text-sm font-bold text-slate-900">{leader.score}%</span>
+            <span className="font-['Cairo'] text-[16px] font-bold leading-[22px] tracking-normal text-[#1D3557] capitalize shrink-0">{leader.score}%</span>
           </div>
         ))}
       </div>
@@ -182,14 +182,14 @@ const RecentActivities = () => {
   ];
   return (
     <div className="bg-white p-6 rounded-xl border border-slate-200 shadow-sm h-full">
-      <h3 className="font-bold text-[#16263e] mb-6">Recent Activities</h3>
-      <div className="space-y-6">
+      <h3 className="font-['Cairo'] text-[16px] font-bold leading-[16px] tracking-normal text-[#1D3557] capitalize mb-6">Recent Activities</h3>
+      <div className="divide-y divide-[#E0E8ED]">
         {activities.map((act, i) => (
-          <div key={i} className="flex gap-3">
-            <div className="w-1.5 h-1.5 bg-rose-500 rounded-full mt-1.5 shrink-0" />
-            <div className="flex-1">
-              <p className="text-[12px] text-slate-700 leading-tight mb-1">{act.text}</p>
-              <p className="text-[10px] text-slate-400 font-medium">{act.time}</p>
+          <div key={i} className="flex gap-3 items-start py-4 first:pt-0 last:pb-0">
+            <div className="w-1.5 h-1.5 bg-rose-500 rounded-full shrink-0 mt-1.5" />
+            <div className="flex-1 flex items-start gap-3 min-w-0">
+              <p className="font-['Cairo'] text-[16px] font-medium leading-[22px] tracking-normal text-[#1D3557] capitalize flex-1 min-w-0">{act.text}</p>
+              <p className="font-['Cairo'] text-[12px] font-normal leading-[16px] tracking-normal text-[#8597A8] capitalize shrink-0 whitespace-nowrap">{act.time}</p>
             </div>
           </div>
         ))}
@@ -206,7 +206,7 @@ const PerformanceChart = () => {
   ];
   return (
     <div className="bg-white p-6 rounded-xl border border-slate-200 shadow-sm h-full">
-      <h3 className="font-bold text-[#16263e] mb-8">12-Month Performance</h3>
+      <h3 className="font-['Cairo'] text-[16px] font-bold leading-[16px] tracking-normal text-[#1D3557] capitalize mb-8">12-Month Performance</h3>
       <div className="h-[250px] w-full">
         <ResponsiveContainer width="100%" height="100%">
           <BarChart data={performanceData}>
@@ -227,13 +227,13 @@ const AuditReadiness = () => {
   const data = [{ value: score }, { value: 100 - score }];
   return (
     <div className="bg-white p-6 rounded-xl border border-slate-200 shadow-sm h-full">
-      <h3 className="font-bold text-[#16263e] mb-4">Audit Readiness</h3>
+      <h3 className="font-['Cairo'] text-[16px] font-bold leading-[16px] tracking-normal text-[#1D3557] capitalize mb-4">Audit Readiness</h3>
       <div className="flex flex-col items-center justify-center relative mb-6">
         <ResponsiveContainer width="100%" height={160}>
           <PieChart>
             <Pie data={data} cx="50%" cy="100%" startAngle={180} endAngle={0} innerRadius={70} outerRadius={90} dataKey="value" stroke="none">
-              <Cell fill="#10b981" />
-              <Cell fill="#f1f5f9" />
+              <Cell fill="#1EA54E" />
+              <Cell fill="#F5F8FB" />
             </Pie>
           </PieChart>
         </ResponsiveContainer>
@@ -241,14 +241,14 @@ const AuditReadiness = () => {
           <span className="text-4xl font-bold text-slate-900">{score}%</span>
         </div>
       </div>
-      <div className="grid grid-cols-2 border-t border-slate-100 pt-6">
+      <div className="grid grid-cols-2 border-t border-[#E0E8ED] pt-6">
         <div className="text-center">
-          <p className="text-xl font-bold text-slate-900">12</p>
-          <p className="text-[10px] font-medium text-slate-400">Overdue Stds</p>
+          <p className="font-['Cairo'] text-[24px] font-bold leading-[16px] tracking-normal text-[#1D3557] capitalize">12</p>
+          <p className="font-['Cairo'] text-[14px] font-normal leading-[16px] tracking-normal text-[#8597A8] capitalize mt-4">Overdue Stds</p>
         </div>
-        <div className="text-center border-l border-slate-100">
-          <p className="text-xl font-bold text-slate-900">5</p>
-          <p className="text-[10px] font-medium text-slate-400">Missing Evidence</p>
+        <div className="text-center border-l border-[#E0E8ED]">
+          <p className="font-['Cairo'] text-[24px] font-bold leading-[16px] tracking-normal text-[#1D3557] capitalize">5</p>
+          <p className="font-['Cairo'] text-[14px] font-normal leading-[16px] tracking-normal text-[#8597A8] capitalize mt-4">Missing Evidence</p>
         </div>
       </div>
     </div>
@@ -357,7 +357,7 @@ const Dashboard: React.FC<{ activeTab: string }> = ({ activeTab }) => {
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-        <ComplianceGauge score={65} title="Overall Compliance Score" color="#ef4444" />
+        <ComplianceGauge score={65} title="Overall Compliance Score" color="#1EA54E" />
         <TopLeaders />
         <RecentActivities />
       </div>

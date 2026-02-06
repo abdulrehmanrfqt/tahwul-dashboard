@@ -5,6 +5,7 @@ import tasksIcon from '@/assets/sidebar/tasks.svg';
 import documentsIcon from '@/assets/sidebar/documents.svg';
 import reportsIcon from '@/assets/sidebar/reports.svg';
 import usersIcon from '@/assets/sidebar/users.svg';
+import arrowLeftIcon from '@/assets/sidebar/arrowLeft.svg';
 
 interface SidebarProps {
   isOpen: boolean;
@@ -36,7 +37,7 @@ const Sidebar: React.FC<SidebarProps> = ({ isOpen, setIsOpen, activeTab, setActi
         aria-label={isOpen ? "Collapse Sidebar" : "Expand Sidebar"}
       >
         <img 
-          src="https://i.ibb.co/0yhg9wHD/hugeicons-arrow-left-05.png" 
+          src={arrowLeftIcon} 
           alt="Toggle" 
           className={`w-5 h-5 transition-transform duration-300 ${!isOpen ? 'rotate-180' : ''}`}
         />
