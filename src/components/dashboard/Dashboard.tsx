@@ -22,12 +22,12 @@ import evidenceCompletedIcon from '@/assets/dashboard/evidenceCompleted.svg';
 import uploadedtoDGAIcon from '@/assets/dashboard/uploadedtoDGA.svg';
 
 
-const OverallProgressIcon = (_props: { size?: number }) => <img src={overallprogressIcon} alt="" className="w-5 h-5" />;
-const TotalCriteriaIcon = (_props: { size?: number }) => <img src={totalCriteriaIcon} alt="" className="w-5 h-5" />;
-const CompletedCriteriaIcon = (_props: { size?: number }) => <img src={completedCriteriaIcon} alt="" className="w-5 h-5" />;
-const EvidenceDocumentsIcon = (_props: { size?: number }) => <img src={evidenceDocumentsIcon} alt="" className="w-5 h-5" />;
-const EvidenceCompletedIcon = (_props: { size?: number }) => <img src={evidenceCompletedIcon} alt="" className="w-5 h-5" />;
-const UploadedToDGAIcon = (_props: { size?: number }) => <img src={uploadedtoDGAIcon} alt="" className="w-5 h-5" />;
+const OverallProgressIcon = (_props: { size?: number }) => <img src={overallprogressIcon} alt="" className="w-6 h-6" />;
+const TotalCriteriaIcon = (_props: { size?: number }) => <img src={totalCriteriaIcon} alt="" className="w-6 h-6" />;
+const CompletedCriteriaIcon = (_props: { size?: number }) => <img src={completedCriteriaIcon} alt="" className="w-6 h-6" />;
+const EvidenceDocumentsIcon = (_props: { size?: number }) => <img src={evidenceDocumentsIcon} alt="" className="w-6 h-6" />;
+const EvidenceCompletedIcon = (_props: { size?: number }) => <img src={evidenceCompletedIcon} alt="" className="w-6 h-6" />;
+const UploadedToDGAIcon = (_props: { size?: number }) => <img src={uploadedtoDGAIcon} alt="" className="w-6 h-6" />;
 
 // --- Sub-components ---
 
@@ -68,14 +68,14 @@ const ProjectTimeline = () => {
 };
 
 const MetricCard = ({ label, value, icon: Icon, color }: any) => (
-  <div className="bg-white p-5 rounded-xl border border-slate-200 shadow-sm flex justify-between items-start">
-    <div>
-      <p className="text-2xl font-bold text-slate-900 mb-2">{value}</p>
-      <p className="text-[16px] text-slate-400">{label}</p>
+  <div className="bg-white p-3 rounded-xl border border-slate-200 shadow-sm flex flex-col">
+    <div className="flex justify-between items-center">
+      <p className="w-[74px] h-4 font-['Cairo'] text-[24px] font-bold leading-[16px] tracking-normal text-[#1D3557] capitalize">{value}</p>
+      <div className={`p-2 rounded-lg shrink-0 ${color}`}>
+        <Icon size={20} />
+      </div>
     </div>
-    <div className={`p-2 rounded-lg ${color}`}>
-      <Icon size={20} />
-    </div>
+    <p className="font-['Cairo'] text-[14px] font-normal leading-[16px] tracking-normal text-slate-400 capitalize mt-1">{label}</p>
   </div>
 );
 
@@ -324,12 +324,12 @@ const Dashboard: React.FC<{ activeTab: string }> = ({ activeTab }) => {
       <ProjectTimeline />
 
       <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
-        <MetricCard label="Overall Progress" value="78.65%" icon={OverallProgressIcon} color="bg-rose-50 text-rose-500" />
-        <MetricCard label="Total Criteria" value="95" icon={TotalCriteriaIcon} color="bg-rose-50 text-rose-500" />
-        <MetricCard label="Completed Criteria" value="52" icon={CompletedCriteriaIcon} color="bg-rose-50 text-rose-500" />
-        <MetricCard label="Evidence Documents" value="386" icon={EvidenceDocumentsIcon} color="bg-rose-50 text-rose-500" />
-        <MetricCard label="Evidence (Completed)" value="302" icon={EvidenceCompletedIcon} color="bg-rose-50 text-rose-500" />
-        <MetricCard label="Uploaded To DGA" value="258" icon={UploadedToDGAIcon} color="bg-rose-50 text-rose-500" />
+        <MetricCard label="Overall Progress" value="78.65%" icon={OverallProgressIcon} color="text-rose-500" />
+        <MetricCard label="Total Criteria" value="95" icon={TotalCriteriaIcon} color="text-rose-500" />
+        <MetricCard label="Completed Criteria" value="52" icon={CompletedCriteriaIcon} color="text-rose-500" />
+        <MetricCard label="Evidence Documents" value="386" icon={EvidenceDocumentsIcon} color="text-rose-500" />
+        <MetricCard label="Evidence (Completed)" value="302" icon={EvidenceCompletedIcon} color="text-rose-500" />
+        <MetricCard label="Uploaded To DGA" value="258" icon={UploadedToDGAIcon} color="text-rose-500" />
       </div>
 
       <div className="bg-white p-6 rounded-xl border border-slate-200 shadow-sm overflow-hidden">
