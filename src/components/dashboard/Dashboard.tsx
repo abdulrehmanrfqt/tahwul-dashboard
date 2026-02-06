@@ -1,14 +1,6 @@
 
 import React, { useState } from 'react';
-import { 
-  BarChart3, 
-  FileText, 
-  CheckSquare, 
-  FolderOpen, 
-  Upload, 
-  ChevronDown,
-  Clock
-} from 'lucide-react';
+import { ChevronDown } from 'lucide-react';
 import { 
   BarChart, 
   Bar, 
@@ -22,6 +14,20 @@ import {
   Cell
 } from 'recharts';
 import StrategicPlanningDetail from './StrategicPlanningDetail';
+import overallprogressIcon from '@/assets/dashboard/overallprogress.png';
+import totalCriteriaIcon from '@/assets/dashboard/totalCriteria.png';
+import completedCriteriaIcon from '@/assets/dashboard/completedCriteria.png';
+import evidenceDocumentsIcon from '@/assets/dashboard/evidenceDocuments.png';
+import evidenceCompletedIcon from '@/assets/dashboard/evidenceCompleted.png';
+import uploadedtoDGAIcon from '@/assets/dashboard/uploadedtoDGA.png';
+
+
+const OverallProgressIcon = (_props: { size?: number }) => <img src={overallprogressIcon} alt="" className="w-5 h-5" />;
+const TotalCriteriaIcon = (_props: { size?: number }) => <img src={totalCriteriaIcon} alt="" className="w-5 h-5" />;
+const CompletedCriteriaIcon = (_props: { size?: number }) => <img src={completedCriteriaIcon} alt="" className="w-5 h-5" />;
+const EvidenceDocumentsIcon = (_props: { size?: number }) => <img src={evidenceDocumentsIcon} alt="" className="w-5 h-5" />;
+const EvidenceCompletedIcon = (_props: { size?: number }) => <img src={evidenceCompletedIcon} alt="" className="w-5 h-5" />;
+const UploadedToDGAIcon = (_props: { size?: number }) => <img src={uploadedtoDGAIcon} alt="" className="w-5 h-5" />;
 
 // --- Sub-components ---
 
@@ -51,8 +57,8 @@ const ProjectTimeline = () => {
           {milestones.map((m, i) => (
             <div key={i} className="flex flex-col items-center text-center w-32 relative z-10">
               <div className={`w-2.5 h-2.5 rounded-full border-0 border-white shadow-sm mb-6 ${m.completed ? 'bg-white' : 'bg-rose-500'}`} />
-              <p className="text-xs font-semibold text-slate-400 mb-1">{m.date}</p>
-              <p className="text-xs font-bold text-slate-700 leading-tight">{m.label}</p>
+              <p className="text-[12px] text-slate-400 mb-1">{m.date}</p>
+              <p className="text-[14px] text-slate-700 leading-tight">{m.label}</p>
             </div>
           ))}
         </div>
@@ -64,8 +70,8 @@ const ProjectTimeline = () => {
 const MetricCard = ({ label, value, icon: Icon, color }: any) => (
   <div className="bg-white p-5 rounded-xl border border-slate-200 shadow-sm flex justify-between items-start">
     <div>
-      <p className="text-2xl font-bold text-slate-900 mb-1">{value}</p>
-      <p className="text-xs font-semibold text-slate-400">{label}</p>
+      <p className="text-2xl font-bold text-slate-900 mb-2">{value}</p>
+      <p className="text-[16px] text-slate-400">{label}</p>
     </div>
     <div className={`p-2 rounded-lg ${color}`}>
       <Icon size={20} />
@@ -318,24 +324,24 @@ const Dashboard: React.FC<{ activeTab: string }> = ({ activeTab }) => {
       <ProjectTimeline />
 
       <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
-        <MetricCard label="Overall Progress" value="78.65%" icon={BarChart3} color="bg-rose-50 text-rose-500" />
-        <MetricCard label="Total Criteria" value="95" icon={FileText} color="bg-rose-50 text-rose-500" />
-        <MetricCard label="Completed Criteria" value="52" icon={CheckSquare} color="bg-rose-50 text-rose-500" />
-        <MetricCard label="Evidence Documents" value="386" icon={FolderOpen} color="bg-rose-50 text-rose-500" />
-        <MetricCard label="Evidence (Completed)" value="302" icon={CheckSquare} color="bg-rose-50 text-rose-500" />
-        <MetricCard label="Uploaded To DGA" value="258" icon={Upload} color="bg-rose-50 text-rose-500" />
+        <MetricCard label="Overall Progress" value="78.65%" icon={OverallProgressIcon} color="bg-rose-50 text-rose-500" />
+        <MetricCard label="Total Criteria" value="95" icon={TotalCriteriaIcon} color="bg-rose-50 text-rose-500" />
+        <MetricCard label="Completed Criteria" value="52" icon={CompletedCriteriaIcon} color="bg-rose-50 text-rose-500" />
+        <MetricCard label="Evidence Documents" value="386" icon={EvidenceDocumentsIcon} color="bg-rose-50 text-rose-500" />
+        <MetricCard label="Evidence (Completed)" value="302" icon={EvidenceCompletedIcon} color="bg-rose-50 text-rose-500" />
+        <MetricCard label="Uploaded To DGA" value="258" icon={UploadedToDGAIcon} color="bg-rose-50 text-rose-500" />
       </div>
 
       <div className="bg-white p-6 rounded-xl border border-slate-200 shadow-sm overflow-hidden">
         <div className="flex flex-col md:flex-row justify-between items-start md:items-center mb-8 gap-4">
           <h3 className="font-bold text-[#1D3557] text-[18px]">Progress Status</h3>
-          <div className="flex flex-wrap gap-4 text-[10px] font-bold text-slate-500">
-            <div className="flex items-center gap-1.5 text-[#1D3557]"><div className="w-2.5 h-2.5 rounded-full bg-slate-400" /> NOT STARTED</div>
-            <div className="flex items-center gap-1.5 text-[#1D3557]"><div className="w-2.5 h-2.5 rounded-full bg-amber-500" /> IN PROGRESS</div>
-            <div className="flex items-center gap-1.5 text-[#1D3557]"><div className="w-2.5 h-2.5 rounded-full bg-emerald-500" /> COMPLETED</div>
-            <div className="flex items-center gap-1.5 text-[#1D3557]"><div className="w-2.5 h-2.5 rounded-full bg-[#16263e]" /> PARTIALLY UPLOADED</div>
-            <div className="flex items-center gap-1.5 text-[#1D3557]"><div className="w-2.5 h-2.5 rounded-full bg-blue-500" /> FULLY UPLOADED</div>
-            <div className="flex items-center gap-1.5 text-[#1D3557]"><div className="w-2.5 h-2.5 rounded-full bg-rose-500" /> DELAYED</div>
+          <div className="flex flex-wrap gap-4 text-[14px] text-slate-500">
+            <div className="flex items-center gap-1.5 text-[#1D3557]"><div className="w-2.5 h-2.5 rounded-full bg-slate-400" /> Not Started</div>
+            <div className="flex items-center gap-1.5 text-[#1D3557]"><div className="w-2.5 h-2.5 rounded-full bg-amber-500" /> In Progress</div>
+            <div className="flex items-center gap-1.5 text-[#1D3557]"><div className="w-2.5 h-2.5 rounded-full bg-emerald-500" /> Completed</div>
+            <div className="flex items-center gap-1.5 text-[#1D3557]"><div className="w-2.5 h-2.5 rounded-full bg-[#16263e]" /> Partially Uploaded</div>
+            <div className="flex items-center gap-1.5 text-[#1D3557]"><div className="w-2.5 h-2.5 rounded-full bg-blue-500" /> Fully Uploaded</div>
+            <div className="flex items-center gap-1.5 text-[#1D3557]"><div className="w-2.5 h-2.5 rounded-full bg-rose-500" /> Delayed</div>
           </div>
         </div>
 

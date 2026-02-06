@@ -1,12 +1,10 @@
 import React from 'react';
-import { 
-  Home, 
-  Activity, 
-  LayoutGrid, 
-  FileText, 
-  BarChart3, 
-  Users
-} from 'lucide-react';
+import dashboardIcon from '@/assets/sidebar/dashboard.png';
+import perspectivesIcon from '@/assets/sidebar/perspectives.png';
+import tasksIcon from '@/assets/sidebar/tasks.png';
+import documentsIcon from '@/assets/sidebar/documents.png';
+import reportsIcon from '@/assets/sidebar/reports.png';
+import usersIcon from '@/assets/sidebar/users.png';
 
 interface SidebarProps {
   isOpen: boolean;
@@ -17,12 +15,12 @@ interface SidebarProps {
 
 const Sidebar: React.FC<SidebarProps> = ({ isOpen, setIsOpen, activeTab, setActiveTab }) => {
   const menuItems = [
-    { id: 'dashboard', name: 'Dashboard', icon: Home },
-    { id: 'perspectives', name: 'Perspectives', icon: Activity },
-    { id: 'tasks', name: 'Tasks', icon: LayoutGrid },
-    { id: 'documents', name: 'Documents', icon: FileText },
-    { id: 'reports', name: 'Reports', icon: BarChart3 },
-    { id: 'users', name: 'Users & Roles', icon: Users },
+    { id: 'dashboard', name: 'Dashboard', icon: dashboardIcon },
+    { id: 'perspectives', name: 'Perspectives', icon: perspectivesIcon },
+    { id: 'tasks', name: 'Tasks', icon: tasksIcon },
+    { id: 'documents', name: 'Documents', icon: documentsIcon },
+    { id: 'reports', name: 'Reports', icon: reportsIcon },
+    { id: 'users', name: 'Users & Roles', icon: usersIcon },
   ];
 
   return (
@@ -34,7 +32,7 @@ const Sidebar: React.FC<SidebarProps> = ({ isOpen, setIsOpen, activeTab, setActi
       {/* Sidebar Toggle Button - Top Positioned */}
       <button 
         onClick={() => setIsOpen(!isOpen)}
-        className="absolute -right-5 top-3.5 w-10 h-10 bg-[#f1f5f9] border border-slate-200 rounded-full flex items-center justify-center text-slate-400 hover:text-slate-600 transition-all shadow-md z-50 hover:scale-105 active:scale-95"
+        className="absolute -right-4 top-4 w-8 h-8 bg-[#f1f5f9] border border-slate-200 rounded-full flex items-center justify-center text-slate-400 hover:text-slate-600 transition-all shadow-md z-50 hover:scale-105 active:scale-95"
         aria-label={isOpen ? "Collapse Sidebar" : "Expand Sidebar"}
       >
         <img 
@@ -90,7 +88,7 @@ const Sidebar: React.FC<SidebarProps> = ({ isOpen, setIsOpen, activeTab, setActi
                   : 'text-slate-400 hover:bg-[#202f4a] hover:text-slate-200'
               } ${!isOpen ? 'justify-center px-0' : ''}`}
             >
-              <item.icon size={20} className={isActive ? 'text-white' : 'text-slate-400 group-hover:text-slate-200'} strokeWidth={1.5} />
+              <img src={item.icon} alt="" className={`w-5 h-5 shrink-0 ${isActive ? 'opacity-100' : 'opacity-60 group-hover:opacity-80'}`} />
               {isOpen && <span className="font-medium text-sm whitespace-nowrap">{item.name}</span>}
             </button>
           );
