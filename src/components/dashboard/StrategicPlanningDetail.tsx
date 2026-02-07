@@ -204,33 +204,29 @@ const StrategicPlanningDetail: React.FC<StrategicPlanningDetailProps> = ({ onBac
       {activeTab === 'overview' ? (
         <div className="space-y-6">
           <div className="bg-white rounded-2xl border border-slate-200 shadow-sm flex overflow-hidden">
-            <div className="w-64 border-r border-slate-100 p-4 space-y-3 shrink-0 bg-white">
-              <div className="px-5 py-4 rounded-xl text-xs font-bold bg-[#f1f5f9] text-[#94a3b8]">
+            <div className="w-[168px] border-r border-[#E0E8ED] p-4 space-y-3 shrink-0 bg-white">
+              <div className="px-5 py-4 rounded-xl bg-[#F5F8FA] text-[#1D3557] font-['Cairo'] text-[16px] leading-[16px] tracking-normal capitalize">
                 Objective
               </div>
-              <div className="px-5 py-6 rounded-xl text-xs font-bold bg-[#f8fafc] text-[#1e40af] border border-blue-50">
+              <div className="flex items-start px-5 py-6 rounded-xl bg-[#F5F8FA] text-[#1D3557] font-['Cairo'] text-[16px] leading-[16px] tracking-normal capitalize border border-blue-50 h-[200px]">
                 Implementation Requirements
               </div>
-              <div className="px-5 py-4 rounded-xl text-xs font-bold bg-[#f1f5f9] text-[#94a3b8]">
+              <div className="flex items-start px-5 py-4 rounded-xl bg-[#F5F8FA] text-[#1D3557] font-['Cairo'] text-[16px] leading-[16px] tracking-normal capitalize">
                 Evidence Documents
               </div>
-              <div className="px-5 py-4 rounded-xl text-xs font-bold bg-[#f1f5f9] text-[#94a3b8]">
+              <div className="flex items-start px-5 py-4 rounded-xl bg-[#F5F8FA] text-[#1D3557] font-['Cairo'] text-[16px] leading-[16px] tracking-normal capitalize h-[80px]">
                 Related Regulations
               </div>
-              <div className="px-5 py-4 rounded-xl text-xs font-bold bg-[#f1f5f9] text-[#94a3b8]">
+              <div className="px-5 py-4 rounded-xl bg-[#F5F8FA] text-[#1D3557] font-['Cairo'] text-[16px] leading-[16px] tracking-normal capitalize">
                 Scope
               </div>
             </div>
 
-            <div className="flex-1 p-8 space-y-4 overflow-y-auto bg-white">
-              <div className="bg-[#f8fafc] p-6 rounded-xl border border-slate-50">
-                <p className="text-[#475569] text-[13px] font-medium leading-relaxed">
-                  Develop A Digital Transformation Strategy Aligned With The Organization's Strategy And The Objectives Of Saudi Vision 2030.
-                </p>
+            <div className="flex-1 p-4 space-y-3 overflow-y-auto bg-white">
+              <div className="px-5 py-4 rounded-xl bg-[#F5F8FA] text-[#1D3557] font-['Cairo'] text-[16px] leading-[16px] tracking-normal capitalize">
+                Develop A Digital Transformation Strategy Aligned With The Organization's Strategy And The Objectives Of Saudi Vision 2030.
               </div>
-
-              <div className="bg-[#f8fafc] p-6 rounded-xl border border-slate-50">
-                <p className="text-[#475569] text-[13px] font-medium leading-relaxed">
+              <div className="bg-[#F5F8FA] px-5 py-4 rounded-xl h-[200px] overflow-y-auto">                <p className="text-[#1D3557] text-[16px] font-['Cairo'] leading-relaxed">
                   Prepare A Digital Transformation Strategy For The Transition To Electronic Government Transactions, Including The Following:<br/>
                   A. The Organization's Vision, Mission, Strategic Pillars, And Strategic Objectives, And Their Alignment With The Organization's Overall Strategy.<br/>
                   B. Strategic Initiatives, Programs, And Performance Indicators.<br/>
@@ -239,23 +235,50 @@ const StrategicPlanningDetail: React.FC<StrategicPlanningDetailProps> = ({ onBac
                 </p>
               </div>
 
-              <div className="bg-[#f8fafc] p-6 rounded-xl border border-slate-50">
-                <p className="text-[#475569] text-[13px] font-medium leading-relaxed">
+              <div className="px-5 py-4 rounded-xl bg-[#F5F8FA] text-[#1D3557] font-['Cairo'] text-[16px] leading-[16px] tracking-normal capitalize">
+                  Submit The Approved Digital Transformation Strategy That Includes All The Requirements Of This Standard, Provided That It Has Been Approved Within A Period Not Exceeding 36 Months.
+              </div>
+
+              <div className="px-5 py-4 rounded-xl bg-[#F5F8FA] text-[#1D3557] font-['Cairo'] text-[16px] leading-[16px] tracking-normal capitalize h-[80px] overflow-y-auto">
+                  Council Of Ministers Resolution No. (40) Dated 27/2/1427H, Clause (16).
+              </div>
+
+              <div className="px-5 py-4 rounded-xl bg-[#F5F8FA] text-[#1D3557] font-['Cairo'] text-[16px] leading-[16px] tracking-normal capitalize">
+                All Government Entities.
+              </div>
+              {/* <div className="bg-[#F5F8FA] px-5 py-4 rounded-xl">
+                <p className="text-[#475569] text-[16px] font-medium leading-relaxed">
+                  Develop A Digital Transformation Strategy Aligned With The Organization's Strategy And The Objectives Of Saudi Vision 2030.
+                </p>
+              </div>
+
+              <div className="bg-[#F5F8FA] p-6 rounded-xl">
+                <p className="text-[#475569] text-[16px] font-medium leading-relaxed">
+                  Prepare A Digital Transformation Strategy For The Transition To Electronic Government Transactions, Including The Following:<br/>
+                  A. The Organization's Vision, Mission, Strategic Pillars, And Strategic Objectives, And Their Alignment With The Organization's Overall Strategy.<br/>
+                  B. Strategic Initiatives, Programs, And Performance Indicators.<br/>
+                  C. A Clear Methodology For Integration And Coordination With Relevant External Entities To Achieve The Strategy's Objectives.<br/>
+                  D. Required Competencies, Capabilities, And Skills Necessary To Achieve The Strategy's Objectives.
+                </p>
+              </div>
+
+              <div className="bg-[#F5F8FA] p-6 rounded-xl">
+                <p className="text-[#475569] text-[16px] font-medium leading-relaxed">
                   Submit The Approved Digital Transformation Strategy That Includes All The Requirements Of This Standard, Provided That It Has Been Approved Within A Period Not Exceeding 36 Months.
                 </p>
               </div>
 
-              <div className="bg-[#f8fafc] p-6 rounded-xl border border-slate-50">
-                <p className="text-[#475569] text-[13px] font-medium leading-relaxed">
+              <div className="bg-[#F5F8FA] p-6 rounded-xl">
+                <p className="text-[#475569] text-[16px] font-medium leading-relaxed">
                   Council Of Ministers Resolution No. (40) Dated 27/2/1427H, Clause (16).
                 </p>
               </div>
 
-              <div className="bg-[#f8fafc] p-6 rounded-xl border border-slate-50">
-                <p className="text-[#475569] text-[13px] font-medium leading-relaxed">
+              <div className="bg-[#F5F8FA] p-6 rounded-xl">
+                <p className="text-[#475569] text-[16px] font-medium leading-relaxed">
                   All Government Entities.
                 </p>
-              </div>
+              </div> */}
             </div>
           </div>
 
@@ -271,8 +294,8 @@ const StrategicPlanningDetail: React.FC<StrategicPlanningDetailProps> = ({ onBac
                     className="w-14 h-14 rounded-full object-cover border-2 border-white shadow-sm"
                   />
                   <div>
-                    <h4 className="text-sm font-bold text-[#16263e] mb-0.5">{leader.name}</h4>
-                    <p className="text-xs font-semibold text-[#94a3b8]">{leader.role}</p>
+                    <h4 className="font-['Cairo'] text-[16px] font-medium leading-[22px] tracking-normal text-[#1D3557] capitalize mb-0.5">{leader.name}</h4>
+                    <p className="font-['Cairo'] text-[16px] font-medium leading-[22px] tracking-normal text-[#8597A8] capitalize">{leader.role}</p>
                   </div>
                 </div>
               ))}
