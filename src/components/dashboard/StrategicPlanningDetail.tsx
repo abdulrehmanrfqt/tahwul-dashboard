@@ -284,7 +284,7 @@ const StrategicPlanningDetail: React.FC<StrategicPlanningDetailProps> = ({ onBac
 
           {/* Leaders Section */}
           <div className="bg-white rounded-2xl border border-slate-200 shadow-sm p-6 overflow-hidden">
-            <h3 className="text-base font-bold text-[#16263e] mb-6">Leaders</h3>
+            <h3 className="font-['Cairo'] text-[16px] font-bold leading-[16px] tracking-normal text-[#1D3557] capitalize mb-6">Leaders</h3>
             <div className="flex flex-wrap gap-4">
               {leaders.map((leader, idx) => (
                 <div key={idx} className="flex items-center gap-4 bg-[#f8fafc] border border-slate-100 p-4 pr-10 rounded-2xl min-w-[280px]">
