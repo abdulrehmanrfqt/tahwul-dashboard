@@ -41,28 +41,42 @@ const StrategicPlanningDetail: React.FC<StrategicPlanningDetailProps> = ({ onBac
         <div className="overflow-x-auto">
           <table className="w-full text-left border-collapse min-w-[640px]">
             <thead>
-              <tr className="bg-[#F5F8FB] text-[12px] sm:text-[12px] text-[#1D3557] font-['Cairo'] tracking-wider">
-                <th className="px-3 sm:px-6 py-3 sm:py-4">Document Number <ChevronUp size={12} className="inline ml-1 opacity-40" /></th>
-                <th className="px-3 sm:px-6 py-3 sm:py-4">Document Name <ChevronUp size={12} className="inline ml-1 opacity-40" /></th>
-                <th className="px-3 sm:px-6 py-3 sm:py-4">Document Lead <ChevronUp size={12} className="inline ml-1 opacity-40" /></th>
-                <th className="px-3 sm:px-6 py-3 sm:py-4">Document Preparer <ChevronUp size={12} className="inline ml-1 opacity-40" /></th>
-                <th className="px-3 sm:px-6 py-3 sm:py-4">Date <ChevronUp size={12} className="inline ml-1 opacity-40" /></th>
-                <th className="px-3 sm:px-6 py-3 sm:py-4">Due Date <ChevronUp size={12} className="inline ml-1 opacity-40" /></th>
-                <th className="px-3 sm:px-6 py-3 sm:py-4">Status <ChevronUp size={12} className="inline ml-1 opacity-40" /></th>
+              <tr className="bg-[#F5F8FB] h-[40px]">
+                <th className="px-3 sm:px-6 py-0 h-[40px] font-['Cairo'] text-[12px] font-normal leading-[12px] tracking-[0.02em] text-[#1D3557] text-center capitalize first:rounded-l-[10px] align-middle">
+                  Document Number <ChevronUp size={12} className="inline ml-1 opacity-40" />
+                </th>
+                <th className="px-3 sm:px-6 py-0 h-[40px] font-['Cairo'] text-[12px] font-normal leading-[12px] tracking-[0.02em] text-[#1D3557] text-center capitalize align-middle">
+                  Document Name <ChevronUp size={12} className="inline ml-1 opacity-40" />
+                </th>
+                <th className="px-3 sm:px-6 py-0 h-[40px] font-['Cairo'] text-[12px] font-normal leading-[12px] tracking-[0.02em] text-[#1D3557] text-center capitalize align-middle">
+                  Document Lead <ChevronUp size={12} className="inline ml-1 opacity-40" />
+                </th>
+                <th className="px-3 sm:px-6 py-0 h-[40px] font-['Cairo'] text-[12px] font-normal leading-[12px] tracking-[0.02em] text-[#1D3557] text-center capitalize align-middle">
+                  Document Preparer <ChevronUp size={12} className="inline ml-1 opacity-40" />
+                </th>
+                <th className="px-3 sm:px-6 py-0 h-[40px] font-['Cairo'] text-[12px] font-normal leading-[12px] tracking-[0.02em] text-[#1D3557] text-center capitalize align-middle">
+                  Date <ChevronUp size={12} className="inline ml-1 opacity-40" />
+                </th>
+                <th className="px-3 sm:px-6 py-0 h-[40px] font-['Cairo'] text-[12px] font-normal leading-[12px] tracking-[0.02em] text-[#1D3557] text-center capitalize align-middle">
+                  Due Date <ChevronUp size={12} className="inline ml-1 opacity-40" />
+                </th>
+                <th className="px-3 sm:px-6 py-0 h-[40px] font-['Cairo'] text-[12px] font-normal leading-[12px] tracking-[0.02em] text-[#1D3557] text-center capitalize last:rounded-r-[10px] align-middle">
+                  Status <ChevronUp size={12} className="inline ml-1 opacity-40" />
+                </th>
               </tr>
             </thead>
             <tbody className="divide-y divide-slate-100">
               {evidenceData.map((row, idx) => (
                 <tr key={idx} className="text-[10px] sm:text-[11px] text-slate-600 font-medium hover:bg-slate-50 transition-colors">
-                  <td className="px-3 sm:px-6 py-3 sm:py-4">{row.id}</td>
-                  <td className="px-3 sm:px-6 py-3 sm:py-4 text-[#16263e] max-w-[120px] sm:max-w-none truncate">{row.name}</td>
-                  <td className="px-3 sm:px-6 py-3 sm:py-4">{row.lead}</td>
-                  <td className="px-3 sm:px-6 py-3 sm:py-4">{row.preparer}</td>
-                  <td className="px-3 sm:px-6 py-3 sm:py-4">{row.date}</td>
-                  <td className="px-3 sm:px-6 py-3 sm:py-4">{row.due}</td>
-                  <td className="px-3 sm:px-6 py-3 sm:py-4">
-                    <span className={`px-2 sm:px-3 py-1 rounded-full text-[9px] sm:text-[10px] font-bold whitespace-nowrap ${
-                      row.status === 'Approved' ? 'bg-emerald-50 text-emerald-600' : 'bg-amber-50 text-amber-600'
+                  <td className="px-3 sm:px-6 py-3 sm:py-4 font-['Cairo'] text-[14px] font-normal leading-[20px] tracking-normal text-[#1D3557] capitalize max-w-[120px] sm:max-w-none truncate align-middle">{row.id}</td>
+                  <td className="px-3 sm:px-6 py-3 sm:py-4 font-['Cairo'] text-[14px] font-normal leading-[20px] tracking-normal text-[#1D3557] capitalize max-w-[120px] sm:max-w-none truncate align-middle">{row.name}</td>
+                  <td className="px-3 sm:px-6 py-3 sm:py-4 font-['Cairo'] text-[14px] font-normal leading-[20px] tracking-normal text-[#1D3557] capitalize max-w-[120px] sm:max-w-none truncate align-middle">{row.lead}</td>
+                  <td className="px-3 sm:px-6 py-3 sm:py-4 font-['Cairo'] text-[14px] font-normal leading-[20px] tracking-normal text-[#1D3557] capitalize max-w-[120px] sm:max-w-none truncate align-middle">{row.preparer}</td>
+                  <td className="px-3 sm:px-6 py-3 sm:py-4 font-['Cairo'] text-[14px] font-normal leading-[20px] tracking-normal text-[#1D3557] capitalize max-w-[120px] sm:max-w-none truncate align-middle">{row.date}</td>
+                  <td className="px-3 sm:px-6 py-3 sm:py-4 font-['Cairo'] text-[14px] font-normal leading-[20px] tracking-normal text-[#1D3557] capitalize max-w-[120px] sm:max-w-none truncate align-middle">{row.due}</td>
+                  <td className="px-3 sm:px-6 py-3 sm:py-4 font-['Cairo'] text-[14px] font-normal leading-[20px] tracking-normal text-[#1D3557] capitalize max-w-[120px] sm:max-w-none truncate align-middle">
+                    <span className={`px-2 sm:px-3 py-1 rounded-full text-[14px] whitespace-nowrap ${
+                      row.status === 'Approved' ? 'bg-[#34C7591A] text-[#34C759]' : 'bg-[#FFCC001A] text-[#FFCC00]'
                     }`}>
                       {row.status}
                     </span>
@@ -126,7 +140,7 @@ const StrategicPlanningDetail: React.FC<StrategicPlanningDetailProps> = ({ onBac
   );
 
   return (
-    <div className="max-w-[1600px] mx-auto px-4 sm:px-6 animate-in fade-in slide-in-from-right-4 duration-500">
+    <div className="max-w-[1600px] mx-auto px-0 sm:px-2 animate-in fade-in slide-in-from-right-4 duration-500">
       <div className="flex items-center gap-3 mb-4 sm:mb-6 min-w-0">
         <button 
           onClick={onBack}
@@ -166,25 +180,25 @@ const StrategicPlanningDetail: React.FC<StrategicPlanningDetailProps> = ({ onBac
           { label: 'In Progress Evidence', val: 2, icon: inProgressIcon, color: 'text-rose-500' },
           { label: 'Completed Evidence', val: 1, icon: completedEvidenceIcon, color: 'text-rose-500' }
         ].map((item, i) => (
-          <div key={i} className="bg-white p-4 sm:p-6 rounded-xl sm:rounded-2xl border border-[#E0E8ED] shadow-sm flex items-center gap-3 sm:gap-4 min-w-0">
+          <div key={i} className="bg-white p-2 sm:p-4 rounded-xl sm:rounded-2xl border border-[#E0E8ED] shadow-sm flex items-center gap-2 sm:gap-3 min-w-0">
             <div className={`p-2 sm:p-3 rounded-lg sm:rounded-xl shrink-0 ${item.color}`}>
               <img src={item.icon} alt="" className="w-[18px] h-[18px] sm:w-[22px] sm:h-[22px]" />
             </div>
             <div className="min-w-0">
               <p className="font-['Cairo'] text-[20px] sm:text-[24px] font-bold leading-[16px] tracking-normal text-[#1D3557] capitalize mb-0.5 sm:mb-2">{item.val}</p>
-              <p className="font-['Cairo'] text-[11px] sm:text-[14px] font-medium leading-[18px] sm:leading-[22px] tracking-normal text-[#8597A8] capitalize line-clamp-2">{item.label}</p>
+              <p className="font-['Cairo'] text-[11px] sm:text-[14px] font-normal leading-[18px] sm:leading-[22px] tracking-normal text-[#8597A8] capitalize line-clamp-2">{item.label}</p>
             </div>
           </div>
         ))}
       </div>
 
-      <div className="flex flex-wrap gap-2 mb-4">
+      <div className="flex flex-wrap gap-2 mb-4 bg-[#E0E8ED80] p-1 rounded-lg w-fit">
         <button 
           onClick={() => setActiveTab('overview')}
           className={`px-4 sm:px-6 py-2 rounded-lg text-[12px] sm:text-[14px] font-normal leading-[20px] tracking-normal text-[#1D3557] capitalize transition-all shadow-sm border ${
             activeTab === 'overview' 
               ? 'bg-white border-[#E0E8ED] text-[#1D3557]' 
-              : 'bg-[#F5F8FB] border-transparent text-[#8597A8]'
+              : 'bg-[#E0E8ED80] border-transparent text-[#8597A8]'
           }`}
         >
           Overview
