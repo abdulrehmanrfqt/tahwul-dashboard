@@ -42,23 +42,23 @@ const ProjectTimeline = () => {
   ];
 
   return (
-    <div className="bg-white p-6 rounded-xl border border-[#E0E8ED] shadow-sm mb-4">
-      <div className="flex justify-between items-center mb-2">
-        <h3 className="font-['Cairo'] text-[16px] font-bold leading-[16px] tracking-normal text-[#1D3557] capitalize">Project Timeline</h3>
-        <button className="flex items-center gap-2 px-3 py-1.5 border border-[#E0E8ED] rounded-lg text-sm font-medium text-[#8597A8] hover:bg-[#F5F8FB]">
-          2026 <ChevronDown size={16} />
+    <div className="bg-white p-4 sm:p-6 rounded-xl border border-[#E0E8ED] shadow-sm mb-4">
+      <div className="flex justify-between items-center gap-2 mb-2">
+        <h3 className="font-['Cairo'] text-[14px] sm:text-[16px] font-bold leading-[16px] tracking-normal text-[#1D3557] capitalize truncate min-w-0">Project Timeline</h3>
+        <button className="flex items-center gap-1.5 sm:gap-2 px-2.5 sm:px-3 py-1.5 border border-[#E0E8ED] rounded-lg text-xs sm:text-sm font-medium text-[#8597A8] hover:bg-[#F5F8FB] shrink-0">
+          2026 <ChevronDown size={14} className="sm:w-4 sm:h-4" />
         </button>
       </div>
-      <div className="relative pt-4 pb-2">
-        <div className="absolute top-[15px] left-0 right-0 h-3 bg-[#F5F8FB] rounded-full mx-2 overflow-hidden">
+      <div className="relative pt-4 pb-2 -mx-1 sm:mx-0">
+        <div className="absolute top-[15px] left-1 right-1 sm:left-2 sm:right-2 h-2.5 sm:h-3 bg-[#F5F8FB] rounded-full overflow-hidden">
           <div className="absolute top-0 left-0 w-[35%] h-full bg-[#1EA54E]" />
         </div>
-        <div className="relative flex justify-between">
+        <div className="relative flex justify-between gap-0 min-w-0 overflow-x-auto overflow-y-hidden sm:overflow-visible pb-1 sm:pb-0">
           {milestones.map((m, i) => (
-            <div key={i} className="flex flex-col items-center text-center w-32 relative z-10">
-              <div className={`w-2.5 h-2.5 rounded-full border-0 border-white shadow-sm mb-6 ${m.completed ? 'bg-white' : 'bg-rose-500'}`} />
-              <p className="font-['Cairo'] text-[14px] font-normal leading-[16px] tracking-normal text-[#8597A8] capitalize mb-1">{m.date}</p>
-              <p className="font-['Cairo'] text-[14px] font-normal leading-[16px] tracking-normal text-[#1D3557] capitalize leading-tight">{m.label}</p>
+            <div key={i} className="flex flex-col items-center text-center min-w-[72px] flex-shrink-0 sm:min-w-0 sm:flex-1 sm:w-32 px-0.5 sm:px-0 relative z-10">
+              <div className={`w-2 h-2 sm:w-2.5 sm:h-2.5 rounded-full border-0 border-white shadow-sm mb-4 sm:mb-6 ${m.completed ? 'bg-white' : 'bg-rose-500'}`} />
+              <p className="font-['Cairo'] text-[11px] sm:text-[14px] font-normal leading-[14px] sm:leading-[16px] tracking-normal text-[#8597A8] capitalize mb-0.5 sm:mb-1">{m.date}</p>
+              <p className="font-['Cairo'] text-[11px] sm:text-[14px] font-normal leading-[14px] sm:leading-[16px] tracking-normal text-[#1D3557] capitalize leading-tight">{m.label}</p>
             </div>
           ))}
         </div>
@@ -244,7 +244,7 @@ const AuditReadiness = () => {
   const score = 80;
   const data = [{ value: score }, { value: 100 - score }];
   return (
-    <div className="bg-white p-6 rounded-xl border border-slate-200 shadow-sm h-full">
+    <div className="bg-white p-6 rounded-xl border border-slate-200 shadow-sm flex flex-col h-full">
       <h3 className="font-['Cairo'] text-[16px] font-bold leading-[16px] tracking-normal text-[#1D3557] capitalize mb-4">Audit Readiness</h3>
       <div className="flex flex-col items-center justify-center relative mb-6">
         <ResponsiveContainer width="100%" height={160}>
