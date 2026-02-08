@@ -14,6 +14,15 @@ import {
   Cell
 } from 'recharts';
 import StrategicPlanningDetail from './StrategicPlanningDetail';
+import {
+  timelineMilestones,
+  topLeaders,
+  recentActivities,
+  performanceData,
+  auditReadinessData,
+  metricCards,
+  categories,
+} from '../../data/dashboardData';
 import overallprogressIcon from '@/assets/dashboard/overallprogress.svg';
 import totalCriteriaIcon from '@/assets/dashboard/totalCriteria.svg';
 import completedCriteriaIcon from '@/assets/dashboard/completedCriteria.svg';
@@ -31,17 +40,7 @@ const UploadedToDGAIcon = (_props: { size?: number }) => <img src={uploadedtoDGA
 
 // --- Sub-components ---
 
-const ProjectTimeline = () => {
-  const milestones = [
-    { date: 'Mar 17', label: 'Kickoff Workshop', completed: true },
-    { date: 'March 18', label: 'Data Collection', completed: true },
-    { date: 'May 8', label: 'Initial Phase', completed: false },
-    { date: 'May 9-July 12', label: 'Verification', completed: false },
-    { date: 'July 13', label: 'Completion Reviews', completed: false },
-    { date: 'August 21', label: 'Cycle Conclusion', completed: false },
-  ];
-
-  return (
+const ProjectTimeline = () => (
     <div className="bg-white p-4 sm:p-6 rounded-xl border border-[#E0E8ED] shadow-sm mb-4">
       <div className="flex justify-between items-center gap-2 mb-2">
         <h3 className="font-['Cairo'] text-[14px] sm:text-[16px] font-bold leading-[16px] tracking-normal text-[#1D3557] capitalize truncate min-w-0">Project Timeline</h3>
@@ -54,7 +53,7 @@ const ProjectTimeline = () => {
           <div className="absolute top-0 left-0 w-[35%] h-full bg-[#1EA54E]" />
         </div>
         <div className="relative flex justify-between gap-0 min-w-0 overflow-x-auto overflow-y-hidden sm:overflow-visible pb-1 sm:pb-0">
-          {milestones.map((m, i) => (
+          {timelineMilestones.map((m, i) => (
             <div key={i} className="flex flex-col items-center text-center min-w-[72px] flex-shrink-0 sm:min-w-0 sm:flex-1 sm:w-32 px-0.5 sm:px-0 relative z-10">
               <div className={`w-2 h-2 sm:w-2.5 sm:h-2.5 rounded-full border-0 border-white shadow-sm mb-4 sm:mb-6 ${m.completed ? 'bg-white' : 'bg-rose-500'}`} />
               <p className="font-['Cairo'] text-[11px] sm:text-[14px] font-normal leading-[14px] sm:leading-[16px] tracking-normal text-[#8597A8] capitalize mb-0.5 sm:mb-1">{m.date}</p>
@@ -64,8 +63,7 @@ const ProjectTimeline = () => {
         </div>
       </div>
     </div>
-  );
-};
+);
 
 const MetricCard = ({ label, value, icon: Icon, color }: any) => (
   <div className="bg-white p-3 rounded-xl border border-slate-200 shadow-sm flex flex-col">
@@ -147,17 +145,11 @@ const ComplianceGauge = ({ score, title, color }: { score: number, title: string
   );
 };
 
-const TopLeaders = () => {
-  const leaders = [
-    { name: 'Ahmed Al-Ali', role: 'Strategy Perspective', score: 96 },
-    { name: 'Sarah Al-Khaled', role: 'Beneficiary Perspective', score: 94 },
-    { name: 'Mohammad Al-Mansour', role: 'IT Perspective', score: 92 },
-  ];
-  return (
-    <div className="bg-white p-6 rounded-xl border border-slate-200 shadow-sm h-full">
-      <h3 className="font-['Cairo'] text-[16px] font-bold leading-[16px] tracking-normal text-[#1D3557] capitalize mb-6">Top Performing Perspective Leaders</h3>
-      <div className="divide-y divide-[#E0E8ED]">
-        {leaders.map((leader, i) => (
+const TopLeaders = () => (
+  <div className="bg-white p-6 rounded-xl border border-slate-200 shadow-sm h-full">
+    <h3 className="font-['Cairo'] text-[16px] font-bold leading-[16px] tracking-normal text-[#1D3557] capitalize mb-6">Top Performing Perspective Leaders</h3>
+    <div className="divide-y divide-[#E0E8ED]">
+      {topLeaders.map((leader, i) => (
           <div key={i} className="flex items-center justify-between py-4 first:pt-0 last:pb-0">
             <div className="flex items-center gap-3">
               <img src={`https://i.pravatar.cc/150?u=${leader.name}`} className="w-12 h-12 rounded-full border border-[#E0E8ED] shrink-0" alt={leader.name} />
@@ -168,23 +160,16 @@ const TopLeaders = () => {
             </div>
             <span className="font-['Cairo'] text-[16px] font-bold leading-[22px] tracking-normal text-[#1D3557] capitalize shrink-0">{leader.score}%</span>
           </div>
-        ))}
-      </div>
+      ))}
     </div>
-  );
-};
+  </div>
+);
 
-const RecentActivities = () => {
-  const activities = [
-    { text: 'Document "Strategy_Review.Pdf" Was Uploaded By Ahmed Khaled', time: '5 Mins Ago' },
-    { text: 'Task "Review Compliance Files" Was Assigned To Mona Hamed', time: '20 Mins Ago' },
-    { text: 'New Criterion "5.3 Digital Identity" Was Created By Admin', time: '1 Hour Ago' },
-  ];
-  return (
-    <div className="bg-white p-6 rounded-xl border border-slate-200 shadow-sm h-full">
-      <h3 className="font-['Cairo'] text-[16px] font-bold leading-[16px] tracking-normal text-[#1D3557] capitalize mb-6">Recent Activities</h3>
-      <div className="divide-y divide-[#E0E8ED]">
-        {activities.map((act, i) => (
+const RecentActivities = () => (
+  <div className="bg-white p-6 rounded-xl border border-slate-200 shadow-sm h-full">
+    <h3 className="font-['Cairo'] text-[16px] font-bold leading-[16px] tracking-normal text-[#1D3557] capitalize mb-6">Recent Activities</h3>
+    <div className="divide-y divide-[#E0E8ED]">
+      {recentActivities.map((act, i) => (
           <div key={i} className="flex gap-3 items-start py-4 first:pt-0 last:pb-0">
             <div className="w-1.5 h-1.5 bg-rose-500 rounded-full shrink-0 mt-1.5" />
             <div className="flex-1 flex items-start gap-3 min-w-0">
@@ -192,19 +177,13 @@ const RecentActivities = () => {
               <p className="font-['Cairo'] text-[12px] font-normal leading-[16px] tracking-normal text-[#8597A8] capitalize shrink-0 whitespace-nowrap">{act.time}</p>
             </div>
           </div>
-        ))}
-      </div>
+      ))}
     </div>
-  );
-};
+  </div>
+);
 
 const PerformanceChart = () => {
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
-  const performanceData = [
-    { name: 'Jan', val: 85 }, { name: 'Feb', val: 75 }, { name: 'Mar', val: 80 }, { name: 'Apr', val: 40 },
-    { name: 'May', val: 85 }, { name: 'Jun', val: 78 }, { name: 'Jul', val: 55 }, { name: 'Aug', val: 85 },
-    { name: 'Sept', val: 78 }, { name: 'Oct', val: 55 }, { name: 'Nov', val: 85 }, { name: 'Dec', val: 78 }
-  ];
   return (
     <div className="bg-white p-6 rounded-xl border border-[#E0E8ED] shadow-sm h-full">
       <h3 className="font-['Cairo'] text-[16px] font-bold leading-[16px] tracking-normal text-[#1D3557] capitalize mb-8">12-Month Performance</h3>
@@ -241,7 +220,7 @@ const PerformanceChart = () => {
 };
 
 const AuditReadiness = () => {
-  const score = 80;
+  const { score, overdueStds, missingEvidence } = auditReadinessData;
   const data = [{ value: score }, { value: 100 - score }];
   return (
     <div className="bg-white p-6 rounded-xl border border-slate-200 shadow-sm flex flex-col h-full">
@@ -262,11 +241,11 @@ const AuditReadiness = () => {
       </div>
       <div className="grid grid-cols-2 border-t border-[#E0E8ED] pt-6">
         <div className="text-center">
-          <p className="font-['Cairo'] text-[24px] font-bold leading-[16px] tracking-normal text-[#1D3557] capitalize">12</p>
+          <p className="font-['Cairo'] text-[24px] font-bold leading-[16px] tracking-normal text-[#1D3557] capitalize">{overdueStds}</p>
           <p className="font-['Cairo'] text-[14px] font-normal leading-[16px] tracking-normal text-[#8597A8] capitalize mt-4">Overdue Stds</p>
         </div>
         <div className="text-center border-l border-[#E0E8ED]">
-          <p className="font-['Cairo'] text-[24px] font-bold leading-[16px] tracking-normal text-[#1D3557] capitalize">5</p>
+          <p className="font-['Cairo'] text-[24px] font-bold leading-[16px] tracking-normal text-[#1D3557] capitalize">{missingEvidence}</p>
           <p className="font-['Cairo'] text-[14px] font-normal leading-[16px] tracking-normal text-[#8597A8] capitalize mt-4">Missing Evidence</p>
         </div>
       </div>
@@ -292,63 +271,16 @@ const Dashboard: React.FC<{ activeTab: string }> = ({ activeTab }) => {
     return <StrategicPlanningDetail onBack={() => setSelectedCategory(null)} />;
   }
 
-  const categories = [
-    { title: "Strategy And Planning", percent: "97.78", subCategories: [
-      { name: "Digital Transformation", items: [{id: 1, status: 'completed'}, {id: 2, status: 'completed'}, {id: 3, status: 'completed'}] },
-      { name: "Digital Governance", items: [{id: 1, status: 'completed'}, {id: 2, status: 'completed'}, {id: 3, status: 'in-progress'}] },
-      { name: "Enterprise Architecture", items: [{id: 1, status: 'completed'}, {id: 2, status: 'completed'}, {id: 3, status: 'completed'}, {id: 4, status: 'completed'}] }
-    ]},
-    { title: "Organization And Culture", percent: "70.83", subCategories: [
-      { name: "Digital Culture And Environment", items: [{id: 1, status: 'completed'}, {id: 2, status: 'in-progress'}, {id: 3, status: 'completed'}] },
-      { name: "Leadership Development", items: [{id: 1, status: 'completed'}, {id: 2, status: 'completed'}, {id: 3, status: 'completed'}, {id: 4, status: 'completed'}] },
-      { name: "Skills & Capacity Building", items: [{id: 1, status: 'in-progress'}, {id: 2, status: 'in-progress'}, {id: 3, status: 'in-progress'}] }
-    ]},
-    { title: "Operations And Execution", percent: "80.00", subCategories: [
-      { name: "Business Processes", items: [{id: 1, status: 'completed'}, {id: 2, status: 'in-progress'}, {id: 3, status: 'in-progress'}, {id: 4, status: 'completed'}] }
-    ]},
-    { title: "Business Continuity", percent: "90.59", subCategories: [
-      { name: "Risk Management", items: [{id: 1, status: 'completed'}, {id: 2, status: 'completed'}, {id: 3, status: 'completed'}, {id: 4, status: 'completed'}, {id: 5, status: 'completed'}] },
-      { name: "Business Continuity", items: [{id: 1, status: 'completed'}, {id: 2, status: 'not-started'}, {id: 3, status: 'not-started'}, {id: 4, status: 'completed'}, {id: 5, status: 'completed'}, {id: 6, status: 'not-started'}, {id: 7, status: 'completed'}] }
-    ]},
-    { title: "Information Technology", percent: "75.00", subCategories: [
-      { name: "Support Systems", items: [{id: 1, status: 'fully-uploaded'}, {id: 2, status: 'completed'}, {id: 3, status: 'completed'}, {id: 4, status: 'completed'}, {id: 5, status: 'completed'}] },
-      { name: "IT Infrastructure", items: [{id: 1, status: 'completed'}, {id: 2, status: 'completed'}, {id: 3, status: 'completed'}, {id: 4, status: 'completed'}, {id: 5, status: 'fully-uploaded'}, {id: 6, status: 'completed'}, {id: 7, status: 'completed'}] },
-      { name: "Cloud Infrastructure", items: [{id: 1, status: 'completed'}, {id: 2, status: 'completed'}, {id: 3, status: 'fully-uploaded'}] }
-    ]},
-    { title: "Comprehensive Governance", percent: "64.44", subCategories: [
-      { name: "Governance Platforms", items: [{id: 1, status: 'completed'}, {id: 2, status: 'completed'}, {id: 3, status: 'completed'}, {id: 4, status: 'not-started'}, {id: 5, status: 'completed'}, {id: 6, status: 'completed'}, {id: 7, status: 'completed'}, {id: 8, status: 'completed'}, {id: 9, status: 'completed'}] }
-    ]},
-    { title: "Channels And Services", percent: "100", subCategories: [
-      { name: "Service Quality", items: [{id: 1, status: 'completed'}, {id: 2, status: 'completed'}, {id: 3, status: 'completed'}] },
-      { name: "Digital Channels", items: [{id: 1, status: 'completed'}, {id: 2, status: 'completed'}, {id: 3, status: 'completed'}, {id: 4, status: 'completed'}] }
-    ]},
-    { title: "Beneficiary Centralization", percent: "60.00", subCategories: [
-      { name: "User Engagement", items: [{id: 1, status: 'completed'}, {id: 2, status: 'in-progress'}, {id: 3, status: 'in-progress'}, {id: 4, status: 'in-progress'}] },
-      { name: "User Relationship", items: [{id: 1, status: 'completed'}, {id: 2, status: 'in-progress'}, {id: 3, status: 'in-progress'}] },
-      { name: "User Experience", items: [{id: 1, status: 'completed'}, {id: 2, status: 'in-progress'}, {id: 3, status: 'completed'}, {id: 4, status: 'in-progress'}, {id: 5, status: 'completed'}] }
-    ]},
-    { title: "Government Data", percent: "87.50", subCategories: [
-      { name: "Data Governance", items: [{id: 1, status: 'completed'}, {id: 2, status: 'in-progress'}, {id: 3, status: 'in-progress'}] },
-      { name: "Data Usage & Availability", items: [{id: 1, status: 'completed'}, {id: 2, status: 'in-progress'}, {id: 3, status: 'in-progress'}] },
-      { name: "Open Data", items: [{id: 1, status: 'completed'}, {id: 2, status: 'completed'}, {id: 3, status: 'in-progress'}] }
-    ]},
-    { title: "Research And Innovation", percent: "17.65", subCategories: [
-      { name: "Innovation", items: [{id: 1, status: 'delayed'}, {id: 2, status: 'delayed'}, {id: 3, status: 'delayed'}, {id: 4, status: 'delayed'}] },
-      { name: "Creative Solutions", items: [{id: 1, status: 'in-progress'}, {id: 2, status: 'delayed'}] }
-    ]}
-  ];
+  const metricIcons = [OverallProgressIcon, TotalCriteriaIcon, CompletedCriteriaIcon, EvidenceDocumentsIcon, EvidenceCompletedIcon, UploadedToDGAIcon];
 
   return (
     <div className="max-w-[1600px] mx-auto animate-in fade-in duration-500 pb-12 space-y-6">
       <ProjectTimeline />
 
       <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
-        <MetricCard label="Overall Progress" value="78.65%" icon={OverallProgressIcon} color="text-rose-500" />
-        <MetricCard label="Total Criteria" value="95" icon={TotalCriteriaIcon} color="text-rose-500" />
-        <MetricCard label="Completed Criteria" value="52" icon={CompletedCriteriaIcon} color="text-rose-500" />
-        <MetricCard label="Evidence Documents" value="386" icon={EvidenceDocumentsIcon} color="text-rose-500" />
-        <MetricCard label="Evidence (Completed)" value="302" icon={EvidenceCompletedIcon} color="text-rose-500" />
-        <MetricCard label="Uploaded To DGA" value="258" icon={UploadedToDGAIcon} color="text-rose-500" />
+        {metricCards.map((card, i) => (
+          <MetricCard key={i} label={card.label} value={card.value} icon={metricIcons[i]} color="text-rose-500" />
+        ))}
       </div>
 
       <div className="bg-white p-6 rounded-xl border border-slate-200 shadow-sm overflow-hidden">
