@@ -41,7 +41,7 @@ const StrategicPlanningDetail: React.FC<StrategicPlanningDetailProps> = ({ onBac
         <div className="overflow-x-auto">
           <table className="w-full text-left border-collapse min-w-[640px]">
             <thead>
-              <tr className="bg-slate-50/50 text-[9px] sm:text-[10px] font-bold text-slate-500 uppercase tracking-wider">
+              <tr className="bg-slate-50/50 text-[9px] sm:text-[10px] text-slate-500 tracking-wider">
                 <th className="px-3 sm:px-6 py-3 sm:py-4">Document Number <ChevronUp size={12} className="inline ml-1 opacity-40" /></th>
                 <th className="px-3 sm:px-6 py-3 sm:py-4">Document Name <ChevronUp size={12} className="inline ml-1 opacity-40" /></th>
                 <th className="px-3 sm:px-6 py-3 sm:py-4">Document Lead <ChevronUp size={12} className="inline ml-1 opacity-40" /></th>
@@ -206,21 +206,21 @@ const StrategicPlanningDetail: React.FC<StrategicPlanningDetailProps> = ({ onBac
       {activeTab === 'overview' ? (
         <div className="space-y-6">
           <div className="bg-white rounded-2xl border border-slate-200 shadow-sm flex flex-col md:flex-row overflow-hidden">
-            <div className="flex md:flex-col overflow-x-auto md:overflow-visible md:w-[168px] border-b md:border-b-0 md:border-r border-[#E0E8ED] p-3 md:p-4 gap-2 md:gap-0 md:space-y-3 shrink-0 bg-white md:space-y-3">
-              <div className="flex gap-2 md:contents">
-                <div className="flex items-center px-4 py-3 md:px-5 md:py-4 rounded-xl bg-[#F5F8FA] text-[#1D3557] font-['Cairo'] text-[14px] md:text-[16px] leading-[16px] tracking-normal capitalize whitespace-nowrap shrink-0">
+            <div className="overflow-x-auto md:overflow-visible md:w-[168px] border-b md:border-b-0 md:border-r border-[#E0E8ED] p-3 md:p-4 shrink-0 bg-white">
+              <div className="flex flex-row md:flex-col gap-2 md:gap-3 w-max md:w-full">
+                <div className="flex items-center px-4 py-3 md:px-5 md:py-4 rounded-xl bg-[#F5F8FA] text-[#1D3557] font-['Cairo'] text-[14px] md:text-[16px] leading-[16px] tracking-normal capitalize whitespace-nowrap md:whitespace-normal shrink-0 md:shrink min-w-0">
                   Objective
                 </div>
-                <div className="flex items-center md:items-start px-4 py-3 md:px-5 md:py-6 rounded-xl bg-[#F5F8FA] text-[#1D3557] font-['Cairo'] text-[14px] md:text-[16px] leading-[16px] tracking-normal capitalize border border-blue-50 md:h-[200px] whitespace-nowrap shrink-0">
+                <div className="flex items-center md:items-start px-4 py-3 md:px-5 md:py-6 rounded-xl bg-[#F5F8FA] text-[#1D3557] font-['Cairo'] text-[14px] md:text-[16px] leading-[16px] tracking-normal capitalize border border-blue-50 md:h-[200px] whitespace-nowrap md:whitespace-normal shrink-0 md:shrink min-w-0">
                   Implementation Requirements
                 </div>
-                <div className="flex items-center md:items-start px-4 py-3 md:px-5 md:py-4 rounded-xl bg-[#F5F8FA] text-[#1D3557] font-['Cairo'] text-[14px] md:text-[16px] leading-[16px] tracking-normal capitalize whitespace-nowrap shrink-0">
+                <div className="flex items-center md:items-start px-4 py-3 md:px-5 md:py-4 rounded-xl bg-[#F5F8FA] text-[#1D3557] font-['Cairo'] text-[14px] md:text-[16px] leading-[16px] tracking-normal capitalize whitespace-nowrap md:whitespace-normal shrink-0 md:shrink min-w-0">
                   Evidence Documents
                 </div>
-                <div className="flex items-center md:items-start px-4 py-3 md:px-5 md:py-4 rounded-xl bg-[#F5F8FA] text-[#1D3557] font-['Cairo'] text-[14px] md:text-[16px] leading-[16px] tracking-normal capitalize md:h-[80px] whitespace-nowrap shrink-0">
+                <div className="flex items-center md:items-start px-4 py-3 md:px-5 md:py-4 rounded-xl bg-[#F5F8FA] text-[#1D3557] font-['Cairo'] text-[14px] md:text-[16px] leading-[16px] tracking-normal capitalize md:h-[80px] whitespace-nowrap md:whitespace-normal shrink-0 md:shrink min-w-0">
                   Related Regulations
                 </div>
-                <div className="flex items-center px-4 py-3 md:px-5 md:py-4 rounded-xl bg-[#F5F8FA] text-[#1D3557] font-['Cairo'] text-[14px] md:text-[16px] leading-[16px] tracking-normal capitalize whitespace-nowrap shrink-0">
+                <div className="flex items-center px-4 py-3 md:px-5 md:py-4 rounded-xl bg-[#F5F8FA] text-[#1D3557] font-['Cairo'] text-[14px] md:text-[16px] leading-[16px] tracking-normal capitalize whitespace-nowrap md:whitespace-normal shrink-0 md:shrink min-w-0">
                   Scope
                 </div>
               </div>
