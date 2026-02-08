@@ -109,8 +109,8 @@ const StrategicPlanningDetail: React.FC<StrategicPlanningDetailProps> = ({ onBac
           </div>
           <div className="space-y-4">
             <textarea 
-              placeholder="Write your comment here..."
-              className="w-full p-4 bg-white border border-[#E0E8ED] rounded-xl text-[14px] font-normal leading-[20px] tracking-normal text-[#1D3557] capitalize focus:outline-none focus:ring-1 focus:ring-[#E0E8ED] min-h-[120px] resize-none"
+              placeholder=""
+              className="w-full p-4 bg-white border border-[#E0E8ED] rounded-xl text-[14px] font-normal leading-[20px] tracking-normal text-[#1D3557] capitalize focus:outline-none focus:ring-1 focus:ring-[#E0E8ED] min-h-[120px] resize-y"
             />
             <button className="font-['Cairo'] flex items-center gap-2 px-6 py-2.5 bg-[#1D3557] text-white rounded-lg text-[16px] leading-[20px] tracking-normal text-[#FFFFFF] capitalize hover:bg-[#1a2d4b] transition-all shadow-sm">
               <Send size={16} />
