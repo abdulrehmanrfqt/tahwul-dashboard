@@ -1,5 +1,5 @@
 
-import React, { useState } from 'react';
+import React, { useState, useMemo, useCallback } from 'react';
 import { ChevronDown } from 'lucide-react';
 import { 
   BarChart, 
@@ -77,22 +77,20 @@ const MetricCard = ({ label, value, icon: Icon, color }: any) => (
   </div>
 );
 
-const StatusBubble = ({ num, status }: { num: number; status: string; key?: React.Key }) => {
-  const statusColors: any = {
-    'completed': 'bg-[#1EA54E] text-white',
-    'in-progress': 'bg-[#F59F0A] text-white',
-    'not-started': 'bg-slate-400 text-white',
-    'partially-uploaded': 'bg-[#16263e] text-white',
-    'fully-uploaded': 'bg-blue-500 text-white',
-    'delayed': 'bg-rose-500 text-white',
-  };
-
-  return (
-    <div className={`w-[24px] h-[24px] rounded-full flex items-center justify-center font-['Cairo'] text-[16px] font-normal leading-[16px] tracking-normal capitalize ${statusColors[status] || statusColors['not-started']}`}>
-      {num}
-    </div>
-  );
+const STATUS_COLORS: Record<string, string> = {
+  'completed': 'bg-[#1EA54E] text-white',
+  'in-progress': 'bg-[#F59F0A] text-white',
+  'not-started': 'bg-slate-400 text-white',
+  'partially-uploaded': 'bg-[#16263e] text-white',
+  'fully-uploaded': 'bg-blue-500 text-white',
+  'delayed': 'bg-rose-500 text-white',
 };
+
+const StatusBubble = ({ num, status }: { num: number; status: string; key?: React.Key }) => (
+  <div className={`w-[24px] h-[24px] rounded-full flex items-center justify-center font-['Cairo'] text-[16px] font-normal leading-[16px] tracking-normal capitalize ${STATUS_COLORS[status] ?? STATUS_COLORS['not-started']}`}>
+    {num}
+  </div>
+);
 
 const CategoryColumn = ({ title, percent, subCategories, onClick }: any) => (
   <div className="flex flex-col gap-3 min-w-[100px] flex-1">
@@ -123,7 +121,7 @@ const CategoryColumn = ({ title, percent, subCategories, onClick }: any) => (
 );
 
 const ComplianceGauge = ({ score, title, color }: { score: number, title: string, color: string }) => {
-  const data = [{ value: score }, { value: 100 - score }];
+  const data = useMemo(() => [{ value: score }, { value: 100 - score }], [score]);
   return (
     <div className="bg-white p-6 rounded-xl border border-slate-200 shadow-sm flex flex-col h-full">
       <h3 className="font-['Cairo'] text-[16px] font-bold leading-[16px] tracking-normal text-[#1D3557] capitalize mb-0">{title}</h3>
@@ -184,6 +182,8 @@ const RecentActivities = () => (
 
 const PerformanceChart = () => {
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
+  const handleBarMouseEnter = useCallback((_data: unknown, index: number) => setHoveredIndex(index), []);
+  const handleBarMouseLeave = useCallback(() => setHoveredIndex(null), []);
   return (
     <div className="bg-white p-6 rounded-xl border border-[#E0E8ED] shadow-sm h-full">
       <h3 className="font-['Cairo'] text-[16px] font-bold leading-[16px] tracking-normal text-[#1D3557] capitalize mb-8">12-Month Performance</h3>
@@ -205,8 +205,8 @@ const PerformanceChart = () => {
               fill="url(#performanceBarGradient)"
               radius={[4, 4, 0, 0]}
               barSize={32}
-              onMouseEnter={(_data, index) => setHoveredIndex(index)}
-              onMouseLeave={() => setHoveredIndex(null)}
+              onMouseEnter={handleBarMouseEnter}
+              onMouseLeave={handleBarMouseLeave}
             >
               {performanceData.map((_, index) => (
                 <Cell key={index} stroke={hoveredIndex === index ? '#0078D7' : 'none'} strokeWidth={hoveredIndex === index ? 2 : 0} />
@@ -221,7 +221,7 @@ const PerformanceChart = () => {
 
 const AuditReadiness = () => {
   const { score, overdueStds, missingEvidence } = auditReadinessData;
-  const data = [{ value: score }, { value: 100 - score }];
+  const data = useMemo(() => [{ value: score }, { value: 100 - score }], [score]);
   return (
     <div className="bg-white p-6 rounded-xl border border-slate-200 shadow-sm flex flex-col h-full">
       <h3 className="font-['Cairo'] text-[16px] font-bold leading-[16px] tracking-normal text-[#1D3557] capitalize mb-0">Audit Readiness</h3>
@@ -255,8 +255,13 @@ const AuditReadiness = () => {
 
 // --- Main Dashboard component ---
 
+const METRIC_ICONS = [OverallProgressIcon, TotalCriteriaIcon, CompletedCriteriaIcon, EvidenceDocumentsIcon, EvidenceCompletedIcon, UploadedToDGAIcon];
+
 const Dashboard: React.FC<{ activeTab: string }> = ({ activeTab }) => {
   const [selectedCategory, setSelectedCategory] = useState<string | null>(null);
+
+  const handleBack = useCallback(() => setSelectedCategory(null), []);
+  const handleCategorySelect = useCallback((title: string) => setSelectedCategory(title), []);
 
   if (activeTab !== 'dashboard') {
     return (
@@ -266,12 +271,9 @@ const Dashboard: React.FC<{ activeTab: string }> = ({ activeTab }) => {
     );
   }
 
-  // Handle drill-down view
   if (selectedCategory) {
-    return <StrategicPlanningDetail onBack={() => setSelectedCategory(null)} />;
+    return <StrategicPlanningDetail onBack={handleBack} />;
   }
-
-  const metricIcons = [OverallProgressIcon, TotalCriteriaIcon, CompletedCriteriaIcon, EvidenceDocumentsIcon, EvidenceCompletedIcon, UploadedToDGAIcon];
 
   return (
     <div className="max-w-[1600px] mx-auto animate-in fade-in duration-500 pb-12 space-y-6">
@@ -279,7 +281,7 @@ const Dashboard: React.FC<{ activeTab: string }> = ({ activeTab }) => {
 
       <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
         {metricCards.map((card, i) => (
-          <MetricCard key={i} label={card.label} value={card.value} icon={metricIcons[i]} color="text-rose-500" />
+          <MetricCard key={i} label={card.label} value={card.value} icon={METRIC_ICONS[i]} color="text-rose-500" />
         ))}
       </div>
 
@@ -298,10 +300,10 @@ const Dashboard: React.FC<{ activeTab: string }> = ({ activeTab }) => {
 
         <div className="flex gap-4 overflow-x-auto pb-4 scrollbar-hide">
           {categories.map((cat, i) => (
-            <CategoryColumn 
-              key={i} 
-              {...cat} 
-              onClick={() => setSelectedCategory(cat.title)}
+            <CategoryColumn
+              key={i}
+              {...cat}
+              onClick={() => handleCategorySelect(cat.title)}
             />
           ))}
         </div>
