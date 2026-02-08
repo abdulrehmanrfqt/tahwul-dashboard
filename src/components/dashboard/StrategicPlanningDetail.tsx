@@ -41,7 +41,7 @@ const StrategicPlanningDetail: React.FC<StrategicPlanningDetailProps> = ({ onBac
         <div className="overflow-x-auto">
           <table className="w-full text-left border-collapse min-w-[640px]">
             <thead>
-              <tr className="bg-slate-50/50 text-[9px] sm:text-[10px] text-slate-500 tracking-wider">
+              <tr className="bg-[#F5F8FB] text-[12px] sm:text-[12px] text-[#1D3557] font-['Cairo'] tracking-wider">
                 <th className="px-3 sm:px-6 py-3 sm:py-4">Document Number <ChevronUp size={12} className="inline ml-1 opacity-40" /></th>
                 <th className="px-3 sm:px-6 py-3 sm:py-4">Document Name <ChevronUp size={12} className="inline ml-1 opacity-40" /></th>
                 <th className="px-3 sm:px-6 py-3 sm:py-4">Document Lead <ChevronUp size={12} className="inline ml-1 opacity-40" /></th>
@@ -76,48 +76,46 @@ const StrategicPlanningDetail: React.FC<StrategicPlanningDetailProps> = ({ onBac
 
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 sm:gap-6">
         <div className="lg:col-span-2 bg-white rounded-xl sm:rounded-2xl border border-slate-200 shadow-sm p-4 sm:p-6">
-          <h3 className="text-xs sm:text-sm font-bold text-[#16263e] mb-4 sm:mb-6">Comments</h3>
+          <h3 className="font-['Cairo'] text-[16px] font-bold leading-[16px] tracking-normal text-[#1D3557] capitalize mb-4 sm:mb-6">Comments</h3>
           <div className="space-y-4 mb-6">
             {comments.map((comment) => (
-              <div key={comment.id} className="p-4 rounded-xl border border-slate-100 relative group">
-                <div className="flex items-start gap-3">
-                  <div className="w-8 h-8 rounded-lg bg-slate-100 flex items-center justify-center text-xs font-bold text-slate-400">
+              <div key={comment.id} className="p-4 rounded-xl border border-[#E0E8ED] relative group">
+                <div className="flex items-center gap-3">
+                  <div className="w-6 h-6 rounded-full bg-[#E0E8ED] flex items-center justify-center text-[14px] font-bold text-[#8597A8] shrink-0">
                     {comment.initial}
                   </div>
-                  <div className="flex-1">
-                    <div className="flex justify-between items-center mb-1">
-                      <p className="text-xs font-bold text-[#16263e]">{comment.user}</p>
-                      <span className="text-[10px] font-medium text-slate-400">{comment.date}</span>
-                    </div>
-                    <p className="text-[11px] text-slate-500 font-medium">{comment.text}</p>
+                  <div className="flex flex-1 items-center justify-between gap-2 min-w-0">
+                    <p className="font-['Cairo'] text-[14px] font-bold leading-[16px] tracking-normal text-[#1D3557] capitalize truncate">{comment.user}</p>
+                    <span className="font-['Cairo'] text-[14px] font-normal leading-[16px] tracking-normal text-[#8597A8] capitalize shrink-0">{comment.date}</span>
                   </div>
                 </div>
+                <p className="mt-2 font-['Cairo'] text-[14px] font-normal leading-[20px] tracking-normal text-[#1D3557] capitalize">{comment.text}</p>
               </div>
             ))}
           </div>
           <div className="space-y-4">
             <textarea 
               placeholder="Write your comment here..."
-              className="w-full p-4 bg-slate-50 border border-slate-100 rounded-xl text-xs font-medium focus:outline-none focus:ring-1 focus:ring-slate-200 min-h-[120px] resize-none"
+              className="w-full p-4 bg-white border border-[#E0E8ED] rounded-xl text-[14px] font-normal leading-[20px] tracking-normal text-[#1D3557] capitalize focus:outline-none focus:ring-1 focus:ring-[#E0E8ED] min-h-[120px] resize-none"
             />
-            <button className="flex items-center gap-2 px-6 py-2.5 bg-[#16263e] text-white rounded-lg text-xs font-bold hover:bg-[#1a2d4b] transition-all shadow-sm">
-              <Send size={14} />
+            <button className="font-['Cairo'] flex items-center gap-2 px-6 py-2.5 bg-[#1D3557] text-white rounded-lg text-[16px] leading-[20px] tracking-normal text-[#FFFFFF] capitalize hover:bg-[#1a2d4b] transition-all shadow-sm">
+              <Send size={16} />
               Post Comment
             </button>
           </div>
         </div>
 
-        <div className="bg-white rounded-xl sm:rounded-2xl border border-slate-200 shadow-sm p-4 sm:p-6">
-          <h3 className="text-xs sm:text-sm font-bold text-[#16263e] mb-4 sm:mb-6">Recent Activities</h3>
-          <div className="space-y-6">
+        <div className="bg-white rounded-xl sm:rounded-2xl border border-[#E0E8ED] shadow-sm p-4 sm:p-6 self-start">
+          <h3 className="font-['Cairo'] text-[16px] font-bold leading-[16px] tracking-normal text-[#1D3557] capitalize mb-4 sm:mb-6">Recent Activities</h3>
+          <div className="divide-y divide-[#E0E8ED]">
             {recentActivities.map((act) => (
-              <div key={act.id} className="flex gap-3">
-                <div className="w-1.5 h-1.5 bg-rose-500 rounded-full mt-1.5 shrink-0" />
-                <div className="flex-1 min-w-0">
-                  <p className="text-[11px] font-medium text-slate-700 leading-snug truncate">
+              <div key={act.id} className="flex gap-3 items-start py-4 first:pt-0 last:pb-0">
+                <div className="w-1.5 h-1.5 bg-[#DB1F26] rounded-full mt-1.5 shrink-0" />
+                <div className="flex-1 flex items-start gap-3 min-w-0">
+                  <p className="font-['Cairo'] text-[16px] font-medium leading-[20px] tracking-normal text-[#1D3557] capitalize flex-1 min-w-0">
                     {act.text}
                   </p>
-                  <p className="text-[10px] font-bold text-slate-400 mt-1">{act.time}</p>
+                  <span className="font-['Cairo'] text-[12px] font-normal leading-[16px] tracking-normal text-[#8597A8] capitalize shrink-0 whitespace-nowrap">{act.time}</span>
                 </div>
               </div>
             ))}
