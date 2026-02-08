@@ -130,15 +130,15 @@ const ComplianceGauge = ({ score, title, color }: { score: number, title: string
     <div className="bg-white p-6 rounded-xl border border-slate-200 shadow-sm flex flex-col h-full">
       <h3 className="font-['Cairo'] text-[16px] font-bold leading-[16px] tracking-normal text-[#1D3557] capitalize mb-4">{title}</h3>
       <div className="flex-1 flex flex-col items-center justify-center relative">
-        <ResponsiveContainer width="100%" height={160} className="mb-4">
+        <ResponsiveContainer width="100%" height={160}>
           <PieChart>
-            <Pie data={data} cx="50%" cy="100%" startAngle={180} endAngle={0} innerRadius={70} outerRadius={85} dataKey="value" stroke="none">
+            <Pie data={data} cx="50%" cy="100%" startAngle={180} endAngle={0} innerRadius={70} outerRadius={85} dataKey="value" stroke="none" cornerRadius={8}>
               <Cell fill={color} />
               <Cell fill="#f1f5f9" />
             </Pie>
           </PieChart>
         </ResponsiveContainer>
-        <div className="absolute bottom-4 flex flex-col items-center">
+        <div className="absolute bottom-0 flex flex-col items-center">
           <span className="font-['Cairo'] text-[44px] font-bold leading-[16px] tracking-normal text-[#1D3557] capitalize mb-4">{score}%</span>
           <span className="font-['Cairo'] text-[14px] font-normal leading-[16px] tracking-normal text-[#8597A8] capitalize text-center mt-1">Basic Standards 2025</span>
         </div>
@@ -249,13 +249,13 @@ const AuditReadiness = () => {
       <div className="flex flex-col items-center justify-center relative mb-6">
         <ResponsiveContainer width="100%" height={160}>
           <PieChart>
-            <Pie data={data} cx="50%" cy="100%" startAngle={180} endAngle={0} innerRadius={70} outerRadius={85} dataKey="value" stroke="none">
+            <Pie data={data} cx="50%" cy="100%" startAngle={180} endAngle={0} innerRadius={70} outerRadius={85} dataKey="value" stroke="none" cornerRadius={8}>
               <Cell fill="#1EA54E" />
               <Cell fill="#F5F8FB" />
             </Pie>
           </PieChart>
         </ResponsiveContainer>
-        <div className="absolute bottom-4 flex flex-col items-center">
+        <div className="absolute bottom-0 flex flex-col items-center">
           <span className="font-['Cairo'] text-[44px] font-bold leading-[16px] tracking-normal text-[#1D3557] capitalize mb-4">{score}%</span>
           <span className="font-['Cairo'] text-[14px] font-normal leading-[16px] tracking-normal text-[#8597A8] capitalize text-center">Readiness Level</span>
         </div>
@@ -376,7 +376,7 @@ const Dashboard: React.FC<{ activeTab: string }> = ({ activeTab }) => {
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-        <ComplianceGauge score={65} title="Overall Compliance Score" color="#1EA54E" />
+        <ComplianceGauge score={65} title="Overall Compliance Score" color="#DB1F26" />
         <TopLeaders />
         <RecentActivities />
       </div>

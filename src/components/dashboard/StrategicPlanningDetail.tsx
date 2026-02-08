@@ -192,23 +192,23 @@ const StrategicPlanningDetail: React.FC<StrategicPlanningDetailProps> = ({ onBac
         ))}
       </div>
 
-      <div className="flex flex-wrap gap-2 mb-4 bg-[#E0E8ED80] p-1 rounded-lg w-fit">
+      <div className="inline-flex gap-2 mb-4 bg-[#E0E8ED80] p-1 rounded-lg w-fit">
         <button 
           onClick={() => setActiveTab('overview')}
-          className={`px-4 sm:px-6 py-2 rounded-lg text-[12px] sm:text-[14px] font-normal leading-[20px] tracking-normal text-[#1D3557] capitalize transition-all shadow-sm border ${
+          className={`flex-1 min-w-0 px-4 sm:px-6 py-2 rounded-lg text-[12px] sm:text-[14px] font-normal leading-[20px] tracking-normal text-[#1D3557] capitalize transition-all shadow-sm border ${
             activeTab === 'overview' 
               ? 'bg-white border-[#E0E8ED] text-[#1D3557]' 
-              : 'bg-[#E0E8ED80] border-transparent text-[#8597A8]'
+              : 'bg-transparent border-transparent text-[#8597A8]'
           }`}
         >
           Overview
         </button>
         <button 
           onClick={() => setActiveTab('evidence')}
-          className={`px-4 sm:px-6 py-2 rounded-lg text-[12px] sm:text-[14px] font-normal leading-[20px] tracking-normal text-[#1D3557] capitalize transition-all shadow-sm border ${
+          className={`flex-1 min-w-0 px-4 sm:px-6 py-2 rounded-lg text-[12px] sm:text-[14px] font-normal leading-[20px] tracking-normal text-[#1D3557] capitalize transition-all shadow-sm border ${
             activeTab === 'evidence' 
               ? 'bg-white border-[#E0E8ED] text-[#1D3557]' 
-              : 'bg-[#E0E8ED80] border-transparent text-[#8597A8]'
+              : 'bg-transparent border-transparent text-[#8597A8]'
           }`}
         >
           Evidence
