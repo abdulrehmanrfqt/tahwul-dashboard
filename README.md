@@ -49,24 +49,44 @@ This serves the contents of `dist` locally so you can test the production build.
 
 ```
 tahwul-dashboard/
-├── index.html              # Vite entry HTML
+├── index.html                 # Vite entry HTML
 ├── src/
-│   ├── main.tsx            # React entry point
-│   ├── App.tsx             # Root app component
-│   ├── index.css           # Global styles
-│   ├── assets/             # Images, icons (e.g. PNGs)
-│   ├── types/              # Shared TypeScript types
+│   ├── main.tsx               # React entry point
+│   ├── App.tsx                # Root app component
+│   ├── index.css              # Global styles
+│   ├── vite-env.d.ts          # Vite client types
+│   ├── assets/                # Images and SVG icons
+│   │   ├── dashboard/          # Dashboard metric icons (SVG)
+│   │   ├── sidebar/           # Sidebar nav icons (SVG)
+│   │   ├── favicon.ico
+│   │   └── *.svg              # Other shared SVGs
+│   ├── components/
+│   │   ├── layout/            # Header, Sidebar
+│   │   │   ├── Header.tsx
+│   │   │   ├── Sidebar.tsx
+│   │   │   └── index.ts
+│   │   ├── dashboard/         # Dashboard views
+│   │   │   ├── Dashboard.tsx
+│   │   │   ├── StrategicPlanningDetail.tsx
+│   │   │   └── index.ts
+│   │   └── shared/            # Reusable UI (e.g. AuditTable)
+│   │       ├── AuditTable.tsx
+│   │       └── index.ts
+│   ├── data/                  # Static/mock data
+│   │   └── dashboardData.ts
+│   ├── hooks/                 # Custom React hooks
+│   │   ├── useDashboardNavigation.ts
+│   │   ├── useBarHover.ts
+│   │   ├── useGaugeData.ts
 │   │   └── index.ts
-│   └── components/
-│       ├── layout/         # Header, Sidebar
-│       ├── dashboard/      # Dashboard, StrategicPlanningDetail
-│       └── shared/         # Reusable UI (e.g. AuditTable)
+│   └── types/                 # Shared TypeScript types
+│       └── index.ts
 ├── vite.config.ts
 ├── tsconfig.json
 └── package.json
 ```
 
-Use the `@/` path alias in imports (e.g. `@/components/layout/Header`, `@/types`).
+Use the `@/` path alias in imports (e.g. `@/components/layout/Header`, `@/data/dashboardData`, `@/hooks`).
 
 ### Available scripts
 

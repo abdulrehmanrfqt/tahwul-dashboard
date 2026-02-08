@@ -1,5 +1,6 @@
 
-import React, { useState, useMemo, useCallback } from 'react';
+import React from 'react';
+import { useDashboardNavigation, useBarHover, useGaugeData } from '@/hooks';
 import { ChevronDown } from 'lucide-react';
 import { 
   BarChart, 
@@ -121,7 +122,7 @@ const CategoryColumn = ({ title, percent, subCategories, onClick }: any) => (
 );
 
 const ComplianceGauge = ({ score, title, color }: { score: number, title: string, color: string }) => {
-  const data = useMemo(() => [{ value: score }, { value: 100 - score }], [score]);
+  const data = useGaugeData(score);
   return (
     <div className="bg-white p-6 rounded-xl border border-slate-200 shadow-sm flex flex-col h-full">
       <h3 className="font-['Cairo'] text-[16px] font-bold leading-[16px] tracking-normal text-[#1D3557] capitalize mb-0">{title}</h3>
@@ -181,9 +182,7 @@ const RecentActivities = () => (
 );
 
 const PerformanceChart = () => {
-  const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
-  const handleBarMouseEnter = useCallback((_data: unknown, index: number) => setHoveredIndex(index), []);
-  const handleBarMouseLeave = useCallback(() => setHoveredIndex(null), []);
+  const { hoveredIndex, onMouseEnter, onMouseLeave } = useBarHover();
   return (
     <div className="bg-white p-6 rounded-xl border border-[#E0E8ED] shadow-sm h-full">
       <h3 className="font-['Cairo'] text-[16px] font-bold leading-[16px] tracking-normal text-[#1D3557] capitalize mb-8">12-Month Performance</h3>
@@ -205,8 +204,8 @@ const PerformanceChart = () => {
               fill="url(#performanceBarGradient)"
               radius={[4, 4, 0, 0]}
               barSize={32}
-              onMouseEnter={handleBarMouseEnter}
-              onMouseLeave={handleBarMouseLeave}
+              onMouseEnter={onMouseEnter}
+              onMouseLeave={onMouseLeave}
             >
               {performanceData.map((_, index) => (
                 <Cell key={index} stroke={hoveredIndex === index ? '#0078D7' : 'none'} strokeWidth={hoveredIndex === index ? 2 : 0} />
@@ -221,7 +220,7 @@ const PerformanceChart = () => {
 
 const AuditReadiness = () => {
   const { score, overdueStds, missingEvidence } = auditReadinessData;
-  const data = useMemo(() => [{ value: score }, { value: 100 - score }], [score]);
+  const data = useGaugeData(score);
   return (
     <div className="bg-white p-6 rounded-xl border border-slate-200 shadow-sm flex flex-col h-full">
       <h3 className="font-['Cairo'] text-[16px] font-bold leading-[16px] tracking-normal text-[#1D3557] capitalize mb-0">Audit Readiness</h3>
@@ -258,10 +257,7 @@ const AuditReadiness = () => {
 const METRIC_ICONS = [OverallProgressIcon, TotalCriteriaIcon, CompletedCriteriaIcon, EvidenceDocumentsIcon, EvidenceCompletedIcon, UploadedToDGAIcon];
 
 const Dashboard: React.FC<{ activeTab: string }> = ({ activeTab }) => {
-  const [selectedCategory, setSelectedCategory] = useState<string | null>(null);
-
-  const handleBack = useCallback(() => setSelectedCategory(null), []);
-  const handleCategorySelect = useCallback((title: string) => setSelectedCategory(title), []);
+  const { selectedCategory, selectCategory, goBack } = useDashboardNavigation();
 
   if (activeTab !== 'dashboard') {
     return (
@@ -272,7 +268,7 @@ const Dashboard: React.FC<{ activeTab: string }> = ({ activeTab }) => {
   }
 
   if (selectedCategory) {
-    return <StrategicPlanningDetail onBack={handleBack} />;
+    return <StrategicPlanningDetail onBack={goBack} />;
   }
 
   return (
@@ -303,7 +299,7 @@ const Dashboard: React.FC<{ activeTab: string }> = ({ activeTab }) => {
             <CategoryColumn
               key={i}
               {...cat}
-              onClick={() => handleCategorySelect(cat.title)}
+              onClick={() => selectCategory(cat.title)}
             />
           ))}
         </div>
