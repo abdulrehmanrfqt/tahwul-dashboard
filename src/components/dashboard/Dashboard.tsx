@@ -79,7 +79,7 @@ const MetricCard = ({ label, value, icon: Icon, color }: any) => (
   </div>
 );
 
-const StatusBubble = ({ num, status }: { num: number, status: string }) => {
+const StatusBubble = ({ num, status }: { num: number; status: string; key?: React.Key }) => {
   const statusColors: any = {
     'completed': 'bg-[#1EA54E] text-white',
     'in-progress': 'bg-[#F59F0A] text-white',
@@ -114,8 +114,8 @@ const CategoryColumn = ({ title, percent, subCategories, onClick }: any) => (
             {sub.name}
           </p>
           <div className="grid grid-cols-2 gap-2 place-items-center">
-            {sub.items.map((item: any, idx: number) => (
-              <StatusBubble key={idx} num={item.id} status={item.status} />
+            {sub.items.map((item: { id: number; status: string }, idx: number) => (
+              <StatusBubble key={`${i}-${idx}-${item.id}`} num={item.id} status={item.status} />
             ))}
           </div>
         </div>
