@@ -226,7 +226,7 @@ const StrategicPlanningDetail: React.FC<StrategicPlanningDetailProps> = ({ onBac
                 <div className="flex items-center md:items-start px-4 py-3 md:px-5 md:py-6 rounded-xl bg-[#F5F8FA] text-[#1D3557] font-['Cairo'] text-[14px] md:text-[16px] leading-[16px] tracking-normal capitalize border border-blue-50 md:h-[200px] whitespace-nowrap md:whitespace-normal shrink-0 md:shrink min-w-0">
                   Implementation Requirements
                 </div>
-                <div className="flex items-center md:items-start px-4 py-3 md:px-5 md:py-4 rounded-xl bg-[#F5F8FA] text-[#1D3557] font-['Cairo'] text-[14px] md:text-[16px] leading-[16px] tracking-normal capitalize whitespace-nowrap md:whitespace-normal shrink-0 md:shrink min-w-0">
+                <div className="flex items-center md:items-start px-4 py-3 md:px-5 md:py-4 rounded-xl bg-[#F5F8FA] text-[#1D3557] font-['Cairo'] text-[14px] md:text-[16px] leading-[16px] tracking-normal capitalize md:min-h-[120px] md:flex md:items-center whitespace-nowrap md:whitespace-normal shrink-0 md:shrink min-w-0">
                   Evidence Documents
                 </div>
                 <div className="flex items-center md:items-start px-4 py-3 md:px-5 md:py-4 rounded-xl bg-[#F5F8FA] text-[#1D3557] font-['Cairo'] text-[14px] md:text-[16px] leading-[16px] tracking-normal capitalize md:h-[80px] whitespace-nowrap md:whitespace-normal shrink-0 md:shrink min-w-0">
@@ -252,12 +252,12 @@ const StrategicPlanningDetail: React.FC<StrategicPlanningDetailProps> = ({ onBac
                 </p>
               </div>
 
-              <div className="px-4 sm:px-5 py-3 sm:py-4 rounded-xl bg-[#F5F8FA] text-[#1D3557] font-['Cairo'] text-[14px] sm:text-[16px] leading-[18px] sm:leading-[16px] tracking-normal capitalize">
+              <div className="px-4 sm:px-5 py-3 sm:py-4 rounded-xl bg-[#F5F8FA] text-[#1D3557] font-['Cairo'] text-[14px] sm:text-[16px] leading-[18px] sm:leading-[16px] tracking-normal capitalize min-h-[120px] flex items-center">
                   Submit The Approved Digital Transformation Strategy That Includes All The Requirements Of This Standard, Provided That It Has Been Approved Within A Period Not Exceeding 36 Months.
               </div>
 
               <div className="px-4 sm:px-5 py-3 sm:py-4 rounded-xl bg-[#F5F8FA] text-[#1D3557] font-['Cairo'] text-[14px] sm:text-[16px] leading-[18px] sm:leading-[16px] tracking-normal capitalize h-[80px] overflow-y-auto">
-                  Council Of Ministers Resolution No. (40) Dated 27/2/1427H, Clause (16).
+                Council Of Ministers Resolution No. (40) Dated 27/2/1427H, Clause (16).
               </div>
 
               <div className="px-4 sm:px-5 py-3 sm:py-4 rounded-xl bg-[#F5F8FA] text-[#1D3557] font-['Cairo'] text-[14px] sm:text-[16px] leading-[18px] sm:leading-[16px] tracking-normal capitalize">
